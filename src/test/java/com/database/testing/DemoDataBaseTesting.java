@@ -5,10 +5,15 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class DemoDataBaseTesting {
-	 @Test
+	public static WebDriver driver; 
+	@Test
 	 public void TestVerifyDB(){
 	  
 	  try {
@@ -21,15 +26,15 @@ public class DemoDataBaseTesting {
 	   Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","SYSTEM","tiger");
 		System.out.println("Connection created");
 	// This will create statement  
-       
-	
-	   System.out.println("Connection created");
-	   
-	  // This will create statement  
+       // This will create statement  
 	         Statement smt=con.createStatement();
 	         
 	         System.out.println("Statement created");
-	 
+	     	System.setProperty("webdriver.chrome.driver", "E:\\OXYGENWORKSPACE\\DATABASETESTING\\Drivers\\chromedriver.exe");
+			   driver=new ChromeDriver();
+	         driver.manage().window().maximize();
+	         driver.get("https://opensource-demo.orangehrmlive.com/");
+	         
 	         ResultSet rs=  smt.executeQuery("select * from persons");
 	    	 
 	    	 System.out.println("Query Executed");
@@ -44,6 +49,12 @@ public class DemoDataBaseTesting {
 	    	 String eaddress= rs.getString("ADDRESS");
 	    	 System.out.println("Empno is "+eno+" Empfirstname is "+efname+" Emplastname is "+elname+" Empadress is "+eaddress);
 	    	   
+	    	 driver.findElement(By.id("txtUsername")).sendKeys(efname);
+	    	 driver.findElement(By.id("txtPassword")).sendKeys(elname);
+	    	   Thread.sleep(4000);
+	    	 driver.findElement(By.id("txtUsername")).clear();
+	    	 Thread.sleep(4000);
+	    	 driver.findElement(By.id("txtPassword")).clear();
 	    	 }
 	    	}
 	    	

@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="2030" started-at="2021-06-05T13:31:15Z" finished-at="2021-06-05T13:31:17Z">
+  <suite name="Default suite" duration-ms="222773" started-at="2021-06-05T17:01:03Z" finished-at="2021-06-05T17:04:46Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="2030" started-at="2021-06-05T13:31:15Z" finished-at="2021-06-05T13:31:17Z">
+    <test name="Default test" duration-ms="222773" started-at="2021-06-05T17:01:03Z" finished-at="2021-06-05T17:04:46Z">
       <class name="com.database.testing.DemoDataBaseTesting">
-        <test-method status="PASS" signature="TestVerifyDB()[pri:0, instance:com.database.testing.DemoDataBaseTesting@101b7af]" name="TestVerifyDB" duration-ms="1984" started-at="2021-06-05T13:31:15Z" finished-at="2021-06-05T13:31:17Z">
+        <test-method status="PASS" signature="TestVerifyDB()[pri:0, instance:com.database.testing.DemoDataBaseTesting@653222]" name="TestVerifyDB" duration-ms="221820" started-at="2021-06-05T17:01:04Z" finished-at="2021-06-05T17:04:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestVerifyDB -->
