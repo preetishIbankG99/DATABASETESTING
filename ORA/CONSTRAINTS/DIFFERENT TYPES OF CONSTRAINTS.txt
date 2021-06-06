@@ -1,0 +1,8 @@
+DIFFERENT TYPES OF CONSTRAINTS
++++++++++++++++++++++++++++++++
+NOT NULL :prohibits a database value from being null
+UNIQUE:prohibits multiple rows from having the same value in the same columns or combination of columns but allows some values to be null
+PRIMARY KEY:combines a NOT NULL constraint and a unique constraint in a single declaration.
+FOREIGN KEY:requires values in one table to match values in another table.
+CHECK:requires a value in the database to comply with a specified condition.
+REF:it lets you further describe the relationship between the REF column and the object in references

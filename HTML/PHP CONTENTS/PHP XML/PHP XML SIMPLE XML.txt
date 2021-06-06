@@ -1,0 +1,65 @@
+PHP SimpleXML
+=============
+
+SimpleXML handles the most common XML tasks and leaves the rest for other extensions.
+
+What is SimpleXML?
+SimpleXML is new in PHP 5. It is an easy way of getting an element's attributes and text, if you know the XML document's layout.
+
+Compared to DOM or the Expat parser, SimpleXML just takes a few lines of code to read text data from an element.
+
+SimpleXML converts the XML document into an object, like this:
+
+Elements - Are converted to single attributes of the SimpleXMLElement object. When there's more than one element on one level, they're placed inside an array
+Attributes - Are accessed using associative arrays, where an index corresponds to the attribute name
+Element Data - Text data from elements are converted to strings. If an element has more than one text node, they will be arranged in the order they are found
+SimpleXML is fast and easy to use when performing basic tasks like:
+
+Reading XML files
+Extracting data from XML strings
+Editing text nodes or attributes
+However, when dealing with advanced XML, like namespaces, you are better off using the Expat parser or the XML DOM.
+
+Installation
+As of PHP 5.0, the SimpleXML functions are part of the PHP core. There is no installation needed to use these functions.
+
+Using SimpleXML
+Below is an XML file:
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body>Don't forget me this weekend!</body>
+</note>
+We want to output the element names and data from the XML file above.
+
+Here's what to do:
+
+Load the XML file
+Get the name of the first element
+Create a loop that will trigger on each child node, using the children() function
+Output the element name and data for each child node
+Example
+
+<?php
+$xml = simplexml_load_file("test.xml");
+
+echo $xml->getName() . "<br>";
+
+foreach($xml->children() as $child)
+  {
+  echo $child->getName() . ": " . $child->name . "<br>";
+  }
+?>
+The output of the code above will be:
+
+note
+to: Tove
+from: Jani
+heading: Reminder
+body: Don't forget me this weekend!
+
+More PHP SimpleXML
+For more information about the PHP SimpleXML functions, visit our PHP SimpleXML Reference.

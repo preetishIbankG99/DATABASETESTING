@@ -1,0 +1,51 @@
+Playing Videos in HTML
+Example
+
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  <source src="movie.webm" type="video/webm">
+  <object data="movie.mp4" width="320" height="240">
+    <embed src="movie.swf" width="320" height="240">
+  </object> 
+</video>
+
+The <embed> Element
+The purpose of the <embed> tag is to embed multimedia elements in HTML pages.
+
+The following HTML fragment displays a Flash video embedded in a web page:
+
+Example
+
+<embed src="intro.swf" height="200" width="200">
+
+Using the HTML5 <video> Element
+===============================
+The HTML5 <video> tag defines a video or movie.
+
+The <video> element works in all modern browsers.
+
+The following HTML fragment displays a video in OGG, MP4, or WEBM format:
+
+Example
+
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  <source src="movie.webm" type="video/webm">
+Your browser does not support the video tag.
+</video>
+
+The Best HTML Solution
+The example below uses 4 different video formats. The HTML 5 <video> element tries to play the video either in MP4, OGG, or WEBM format. If this fails, the code "falls back" to try the <object> element. If this also fails, it "falls back" to the <embed> element:
+
+HTML 5 + <object> + <embed>
+
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  <source src="movie.webm" type="video/webm">
+  <object data="movie.mp4" width="320" height="240">
+    <embed src="movie.swf" width="320" height="240">
+  </object> 
+</video>

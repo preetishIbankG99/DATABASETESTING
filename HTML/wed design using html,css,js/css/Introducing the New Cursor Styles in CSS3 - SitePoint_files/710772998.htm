@@ -1,0 +1,134 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>STND_Azure_Q1_GrSp_WebsiteV1_300x250_IFR.tpl</title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+</head><body style="border-width: 0px; margin: 0px;" bgcolor="White">
+<script type="text/javascript">
+var nRequiredVersion = 8; 
+var bIsRightVersion = false;	
+var isIE = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+if(isIE && isWin){
+document.writeln('<SCR' + 'IPT LANGUAGE=VBScript\>');
+document.writeln('on error resume next');
+document.writeln('Set oFlashPlayer = CreateObject("ShockwaveFlash.ShockwaveFlash." & nRequiredVersion)');
+document.writeln('If IsObject(oFlashPlayer) Then');
+document.writeln('bIsRightVersion = True');
+document.writeln('End If');
+document.writeln('If (Not bIsRightVersion) And (nRequiredVersion < 3) Then');
+document.writeln('Set oFlashPlayer = CreateObject("ShockwaveFlash.ShockwaveFlash")');
+document.writeln('If IsObject(oFlashPlayer) Then');
+document.writeln('bIsRightVersion = True');
+document.writeln('End If');
+document.writeln('End If');
+document.writeln('</SCR' + 'IPT\>'); 
+}
+function detectPluginCRF6591324167021() 
+{ 
+	if (!bIsRightVersion) 
+	{
+if (navigator.plugins != null && navigator.plugins.length > 0)
+{
+if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"])
+{
+var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+var descArray = flashDescription.split(" ");
+var tempArrayMajor = descArray[2].split(".");	
+var versionMajor = tempArrayMajor[0];
+bIsRightVersion = (versionMajor >= nRequiredVersion);
+}
+}
+else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1)
+{
+bIsRightVersion = (4 >= nRequiredVersion);
+}
+else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1)
+{
+bIsRightVersion = (3 >= nRequiredVersion);
+}
+else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) 
+{
+bIsRightVersion = (2 >= nRequiredVersion);
+}
+	}
+}
+detectPluginCRF6591324167021();
+var _CRF6591324167021_Instance =
+{
+click : "http://adclick.g.doubleclick.net/aclk%253Fsa%253DL%2526ai%253DB5yCbS1KRUMetFYW7iger0oHwDe7TnOsCAAAAEAEgrJH9ATgAWM6LrdlEYOXq44OYDrIBEXd3dy5zaXRlcG9pbnQuY29tugEJZ2ZwX2ltYWdlyAEJ2gEsaHR0cDovL3d3dy5zaXRlcG9pbnQuY29tL2NzczMtY3Vyc29yLXN0eWxlcy_AAgLgAgDqAhwvNzQ0ODc5Mi9EZXZDZW50ZXJfMzAweDI1MF8y-AL_0R6AAwGQA_ABmAPkCqgDAeAEAaAGFg%2526num%253D0%2526sig%253DAOD64_1fzu1g6ROBCcdSOkZkDAqN5QXmrA%2526client%253Dca-pub-9603645151104616%2526adurl%253D",
+clickThruUrl: "http://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.$num$/01/",
+imgs : []
+};
+if (!window.armapi_a1_a1)
+{
+var armapi_a1_a1 =
+{
+initialize : function(unique_id){},
+click : function(unique_id, num, suffix)
+{
+this.clickTrack(unique_id);
+this.clickThru(unique_id, num, suffix);
+},
+clickTrack : function(unique_id, num)
+{
+var instance = window[unique_id + "_Instance"];
+if (instance.click != "")
+{
+var img = new Image();
+img.src = instance.click + "http://t.atdmt.com";
+instance.imgs.push(img); 
+}
+},
+clickThru : function(unique_id, num, suffix) {
+var instance = window[unique_id + "_Instance"];
+var url = instance.clickThruUrl.replace("$num$", num) + suffix;
+window.open(url, "_blank"); 
+}
+};
+}
+var armapi_ArmClickType = isIE ? "ext" : "";
+var _strContentCRF6591324167021 = '';
+if(bIsRightVersion) 
+{ 
+var strFQDN = "HTTP://spe.atdmt.com/ds/NMMRTRUMTCRF/"; 
+var index = strFQDN.indexOf("/ds/");
+strFQDN = strFQDN.substring(0, index);
+_strContentCRF6591324167021 = '' + '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="HTTP://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" id="idSWFCRF6591324167021" width="300" height="250">'
++ '<param name="movie" value="HTTP://spe.atdmt.com/ds/NMMRTRUMTCRF/STND_Azure_Q1_GrSp_WebsiteV1_300x250.swf?ver=1&clickTag1=!~!click!~!http://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.1/01&clickTag=!~!click!~!http://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.1/01" />'
++ '<param name="base" value="HTTP://spe.atdmt.com/ds/NMMRTRUMTCRF/" />'
++ '<param name="FlashVars"  value="ArmClickType='+ armapi_ArmClickType + '&unique_id=_CRF6591324167021&ArmApi=armapi_a1_a1&ArmClickUrl=http://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.$num$/01/&ArmClickToken=$num$" />'
++ '<param name="quality" value="high" />'
++ '<param name="salign" value="lt" />'
++ '<param name="loop" value="true" />'
++ '<param name="wmode" value="opaque" />'
++ '<param name="allowScriptAccess" value="always" />'
++ '<embed  allowScriptAccess="always" quality="high" salign="LT" loop="true" type="application/x-shockwave-flash" pluginspace="HTTP://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" base="HTTP://spe.atdmt.com/ds/NMMRTRUMTCRF/" wmode="opaque" src="HTTP://spe.atdmt.com/ds/NMMRTRUMTCRF/STND_Azure_Q1_GrSp_WebsiteV1_300x250.swf?ver=1&clickTag1=!~!click!~!http://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.1/01&clickTag=!~!click!~!http://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.1/01" width="300" height="250" FlashVars="unique_id=_CRF6591324167021&ArmApi=armapi_a1_a1&ArmClickUrl=http://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.$num$/01/&ArmClickToken=$num$" />'
++ '</object>'
++ '';
+if ( "%OOB%" == "1" )
+_strContentCRF6591324167021 = _strContentCRF6591324167021.replace(/!~!click!~!/g,'');
+else
+_strContentCRF6591324167021 = _strContentCRF6591324167021.replace(/!~!click!~!/g,'http://adclick.g.doubleclick.net/aclk%253Fsa%253DL%2526ai%253DB5yCbS1KRUMetFYW7iger0oHwDe7TnOsCAAAAEAEgrJH9ATgAWM6LrdlEYOXq44OYDrIBEXd3dy5zaXRlcG9pbnQuY29tugEJZ2ZwX2ltYWdlyAEJ2gEsaHR0cDovL3d3dy5zaXRlcG9pbnQuY29tL2NzczMtY3Vyc29yLXN0eWxlcy_AAgLgAgDqAhwvNzQ0ODc5Mi9EZXZDZW50ZXJfMzAweDI1MF8y-AL_0R6AAwGQA_ABmAPkCqgDAeAEAaAGFg%2526num%253D0%2526sig%253DAOD64_1fzu1g6ROBCcdSOkZkDAqN5QXmrA%2526client%253Dca-pub-9603645151104616%2526adurl%253D');
+} 
+else 
+{ 
+_strContentCRF6591324167021 = '<a target="_blank" href="http://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.1/01/" onclick="if(\'http://adclick.g.doubleclick.net/aclk%253Fsa%253DL%2526ai%253DB5yCbS1KRUMetFYW7iger0oHwDe7TnOsCAAAAEAEgrJH9ATgAWM6LrdlEYOXq44OYDrIBEXd3dy5zaXRlcG9pbnQuY29tugEJZ2ZwX2ltYWdlyAEJ2gEsaHR0cDovL3d3dy5zaXRlcG9pbnQuY29tL2NzczMtY3Vyc29yLXN0eWxlcy_AAgLgAgDqAhwvNzQ0ODc5Mi9EZXZDZW50ZXJfMzAweDI1MF8y-AL_0R6AAwGQA_ABmAPkCqgDAeAEAaAGFg%2526num%253D0%2526sig%253DAOD64_1fzu1g6ROBCcdSOkZkDAqN5QXmrA%2526client%253Dca-pub-9603645151104616%2526adurl%253D\')(new Image).src=\'http://adclick.g.doubleclick.net/aclk%253Fsa%253DL%2526ai%253DB5yCbS1KRUMetFYW7iger0oHwDe7TnOsCAAAAEAEgrJH9ATgAWM6LrdlEYOXq44OYDrIBEXd3dy5zaXRlcG9pbnQuY29tugEJZ2ZwX2ltYWdlyAEJ2gEsaHR0cDovL3d3dy5zaXRlcG9pbnQuY29tL2NzczMtY3Vyc29yLXN0eWxlcy_AAgLgAgDqAhwvNzQ0ODc5Mi9EZXZDZW50ZXJfMzAweDI1MF8y-AL_0R6AAwGQA_ABmAPkCqgDAeAEAaAGFg%2526num%253D0%2526sig%253DAOD64_1fzu1g6ROBCcdSOkZkDAqN5QXmrA%2526client%253Dca-pub-9603645151104616%2526adurl%253Dhttp://t.atdmt.com\'"><img border="0" src="HTTP://spe.atdmt.com/ds/NMMRTRUMTCRF/STND_Azure_Q1_GrSp_WebsiteV1_300x250.jpg?ver=1" width="300" height="250" /></a>';
+}
+</script>
+<script type="text/javascript" src="710772998_data/DocumentDotWrite.js"></script>
+<script type="text/javascript">DocumentDotWrite(_strContentCRF6591324167021);</script><a target="_blank" href="http://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.1/01/" onclick="if('http://adclick.g.doubleclick.net/aclk%253Fsa%253DL%2526ai%253DB5yCbS1KRUMetFYW7iger0oHwDe7TnOsCAAAAEAEgrJH9ATgAWM6LrdlEYOXq44OYDrIBEXd3dy5zaXRlcG9pbnQuY29tugEJZ2ZwX2ltYWdlyAEJ2gEsaHR0cDovL3d3dy5zaXRlcG9pbnQuY29tL2NzczMtY3Vyc29yLXN0eWxlcy_AAgLgAgDqAhwvNzQ0ODc5Mi9EZXZDZW50ZXJfMzAweDI1MF8y-AL_0R6AAwGQA_ABmAPkCqgDAeAEAaAGFg%2526num%253D0%2526sig%253DAOD64_1fzu1g6ROBCcdSOkZkDAqN5QXmrA%2526client%253Dca-pub-9603645151104616%2526adurl%253D')(new Image).src='http://adclick.g.doubleclick.net/aclk%253Fsa%253DL%2526ai%253DB5yCbS1KRUMetFYW7iger0oHwDe7TnOsCAAAAEAEgrJH9ATgAWM6LrdlEYOXq44OYDrIBEXd3dy5zaXRlcG9pbnQuY29tugEJZ2ZwX2ltYWdlyAEJ2gEsaHR0cDovL3d3dy5zaXRlcG9pbnQuY29tL2NzczMtY3Vyc29yLXN0eWxlcy_AAgLgAgDqAhwvNzQ0ODc5Mi9EZXZDZW50ZXJfMzAweDI1MF8y-AL_0R6AAwGQA_ABmAPkCqgDAeAEAaAGFg%2526num%253D0%2526sig%253DAOD64_1fzu1g6ROBCcdSOkZkDAqN5QXmrA%2526client%253Dca-pub-9603645151104616%2526adurl%253Dhttp://t.atdmt.com'"><img src="710772998_data/STND_Azure_Q1_GrSp_WebsiteV1_300x250.jpg" border="0" width="300" height="250"></a>
+<script type="text/javascript">
+if("0" == "1"){document.write('<scr' + 'ipt type="text/javascript" src="HTTP://spe.atdmt.com/ds/Ad.autoLoad.js?plugin=AdChoices"></scr' + 'ipt>');}
+</script>
+<noscript> <a target="_blank"
+href="http://adclick.g.doubleclick.net/aclk%253Fsa%253DL%2526ai%253DB5yCbS1KRUMetFYW7iger0oHwDe7TnOsCAAAAEAEgrJH9ATgAWM6LrdlEYOXq44OYDrIBEXd3dy5zaXRlcG9pbnQuY29tugEJZ2ZwX2ltYWdlyAEJ2gEsaHR0cDovL3d3dy5zaXRlcG9pbnQuY29tL2NzczMtY3Vyc29yLXN0eWxlcy_AAgLgAgDqAhwvNzQ0ODc5Mi9EZXZDZW50ZXJfMzAweDI1MF8y-AL_0R6AAwGQA_ABmAPkCqgDAeAEAaAGFg%2526num%253D0%2526sig%253DAOD64_1fzu1g6ROBCcdSOkZkDAqN5QXmrA%2526client%253Dca-pub-9603645151104616%2526adurl%253Dhttp://clk.atdmt.com/go/416609384/direct;wi.300;hi.250;ai.293932245;ct.1/01"><img
+border="0"
+src="HTTP://spe.atdmt.com/ds/NMMRTRUMTCRF/STND_Azure_Q1_GrSp_WebsiteV1_300x250.jpg?ver=1"
+width="300" height="250" /></a>
+</noscript>
+<script type="text/javascript" src="710772998_data/surly.js"></script><script>(function(){if(d.getElementById('ba.js'))return;d.write('<sc'+'ript id="ba.js" type="text/javascript" src="http://c.betrad.com/geo/ba.js?r756"></scr'+'ipt>');})();</script><script id="ba.js" type="text/javascript" src="710772998_data/ba.js"></script><script src="710772998_data/11908.js"></script><script>d.write('<sc'+'ript>try{BAP.start(_bao);}catch(e){var _bab = _bab||[];var ob={}; for (var p in _bao) {ob[p]=_bao[p]}_bab.push(ob);}</sc'+'ript>');</script><script>try{BAP.start(_bao);}catch(e){var _bab = _bab||[];var ob={}; for (var p in _bao) {ob[p]=_bao[p]}_bab.push(ob);}</script>
+<style type="text/css" id="bass-COMMON">.bap-blue,.bap-close,.bap-div,.bap-gradient,.bap-gray,.bap-img-container,.bap-notice,.bap-link-div{color:#000;white-space:normal;word-wrap:normal;vertical-align:middle!important;margin:0;padding:0;border:0;outline:0;font-family:Arial!important;font-size:100%;border-collapse:collapse;border-spacing:0;line-height:13px;list-style:none;letter-spacing:0!important;text-align:left;}.bap-notice{background-color:#FFF;padding:2px;font-size:16px;line-height:13px;z-index:9991;top:-100px;left:-100px;}.bap-blue,.bap-blue:link,.bap-blue:visited{color:#2b2f98;}.bap-close{width:20px;color:#707070;font-size:10px;font-weight:bold;margin-left:-22px;position:relative;top:1px;left:100%;cursor:pointer;}.bap-div{border:1px solid #ababab;}.bap-div p{float:none;padding:0;}.bap-gray,.bap-gray:visited{color:#444;}.bap-img-container a{vertical-align:middle;display:table-cell;height:45px;}.bap-link-div{height:14px;color:#2b2f98;border-top:1px solid #ababab;padding:3px 10px 4px 10px;text-decoration:none;font-size:.67em!important;font-weight:bold;}.bap-link-div a,.bap-link-div span{text-decoration:none;font-size:inherit;font-weight:bold;}#BAP-holder img{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;max-width:100%;box-shadow:0 0!important;-moz-box-shadow:0 0!important;-webkit-box-shadow:0 0!important;background:none!important;}#BAP-holder{position:static!important;}#BAP-holder .bap-trigger{z-index:9990;}.bap-trigger{cursor:pointer;display:block;font-family:Arial;font-size:8pt;white-space:nowrap;}</style><div id="BAP-holder"><div id="trigger-container-24810" style="position: static ! important;"><span id="trigger-box-24810" class="bap-trigger" style="z-index: 100000; position: absolute; opacity: 0.7; width: 77px; height: 15px; top: 235px; left: 0px;"><img id="trigger-box-image-24810" src="710772998_data/box_77_bottom-left.png"></span><span id="trigger-24810" style="z-index: 100000; position: absolute; top: 235px; left: 0px;" class="bap-trigger" onclick="BAP.action('24810', 'S'); BAP.createL2('24810');"><img src="710772998_data/c_30_us.png"></span></div><div id="bap-notice-24810" class="bap1 bap-notice" style="width: auto ! important; max-width: 299px; min-width: 276px; display: none; z-index: 100001;"><div class="bap-div"><div class="bap-close" onclick="BAP.toggle(24810);return false;">[ X ]</div><div class="bap-img-container"><img id="bap-logo-24810" border="0"></div><p>This ad may have been matched to your interests based on your browsing activity.<br><br>Microsoft Atlas helped Windows Azure select this ad for you.</p><div class="bap-link-div"><a class="bap-blue" href="about:blank" id="bap-link-1-24810" target="_blank" onclick="BAP.action('24810', 'M');" onmouseover="BAP.moreInfoLink('24810')">More information &amp; opt-out options »</a></div><div class="bap-link-div"><a class="bap-blue" href="about:blank" id="bap-link-2-24810" target="_blank" onclick="BAP.action('24810', 'B');" onmouseover="BAP.iabLink('24810')">What is interest based advertising »</a></div><div class="bap-link-div"><span class="bap-gray">Privacy Controls by Evidon</span></div></div></div></div><img src="710772998_data/pixel.gif" width="0" height="0"><style type="text/css" id="bass-1">.bap1 .bap-img-container{margin:-18px 0 9px 10px;height:45px;position:static;}.bap1 .bap-img-container img{margin-top:6px!important;}.bap1 p{font-size:.7em;margin:4px 5px 0 10px;padding-bottom:6px;line-height:13px;width:259px;}.bap1 .bap-close{<!--[if lte IE 7]>top:0;left:273px!important;<![endif]-->;}</style></body></html>

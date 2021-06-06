@@ -1,0 +1,9 @@
+Playing a YouTube Video in HTML
+If you want to play a video in a web page, you can upload the video to YouTube and insert the proper HTML code to display the video:
+
+Example - YouTube iFrame
+
+<iframe width="420" height="345"
+src="http://www.youtube.com/embed/XGSy3_Czz8k">
+</iframe>
+

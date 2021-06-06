@@ -1,0 +1,60 @@
+INDEX
+======
+it is a schema object which contains an entry for each value that appears in the indexed column(s0
+of the table or cluster.index provides direct ,fast access to rows
+Syntax
+=======
+CREATE{[UNIQUE]/[BITMAP]}INDEX IndexName ON TableName(ColumnName[,ColumnName..])TABLESPACE TableSpaceName;
+
+SIMPLE INDEX OR NORMAL INDEX
+============================
+-A simple Index OR Normal index is created upon a table by considering only one column.
+-These index are generally created using the algorithm of B-Tree Index.
+-We can create index on columns containing NULL OR Repeated Data if UNIQUE Key word is Not used.
+-These are default index in oracle
+
+CREATE INDEX EmpEmpnoIDX ON Emp(Empno);
+CREATE INDEX DeptDeptnoIDX ON Dept(Deptno);
+
+CREATING COMPOSITE INDEXES
+==========================
+composite index is an INDEX on Multiple Columns of a table.
+composite index can be created upon atable maximum collection of 32 columns.
+CREATE INDEX Stud_Fname_Lname_Idx ON Student(Fname,Lname);
+CREATE INDEX Emp_Name_Place_IDX ON Emp(Ename,StreetName);
+
+CREATING UNIQUE INDEX
+=====================
+SPECIFY UNIQUE TO INDICATE THAT THE VALUE OF THE COLUMN OR COLUMNS UPON WHICH THE INDEX IS BASED MUST BE UNIQUE.
+
+RESTRICTIONS
+============
+WE CANNOT SPECIFY BOTH UNIQUE AND BIT MAP INDEXES AT A TIME.
+CREATE UNIQUE INDEX EmpEmailIDxUNQ ON Emp(Email);
+CREATE UNIQUE INDEXStuphnoIDxUNQ ON Student(phoneNO);
+
+BITMAP INDEX
+============
+-specify bitmap to indicate that index has to be created with a bitmap for each distinct key in the table.
+-bitmap indexes store the rowid's associated with a key values as a bitmap.
+-bitmap indexes should be used only when the data is infrequently updated.
+-oracle optimizer can dynamically convert bitmap index entries to rowid's during the query processing.
+
+CREATE BITMAP INDEX EmpBitMapDeptno ON Emp(Deptno);
+
+creating function based index
+=============================
+SQL>CREATE INDEX EmpFuncAnnSalIDX ON Emp(Sal*12);
+
+DROPPING AN INDEX
+==================
+SYNTAX
+======
+DROP INDEX INDEX_NAME;
+QUERYING FOR INDEXES
+====================
+SELECT UC.TABLE_NAME TableName,UC.COLUMN_NAME ColName,
+I.INDEX_NAME IDXName FROM USER_IND_COLUMNS UC,
+USER_INDEXES UI WHERE UC.INDEX_NAME=UI.INDEX_NAME;
+
+ 

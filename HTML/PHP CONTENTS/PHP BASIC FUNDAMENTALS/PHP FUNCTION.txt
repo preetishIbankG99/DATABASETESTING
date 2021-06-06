@@ -1,0 +1,136 @@
+PHP Functions
+=============
+PHP Built-in Functions
+For a complete reference and examples of the built-in functions, please visit our PHP Reference.
+
+PHP Functions
+In this chapter we will show you how to create your own functions.
+
+To keep the script from being executed when the page loads, you can put it into a function.
+
+A function will be executed by a call to the function.
+
+You may call a function from anywhere within a page.
+
+Create a PHP Function
+A function will be executed by a call to the function.
+
+Syntax
+
+function functionName()
+{
+code to be executed;
+}
+PHP function guidelines:
+
+Give the function a name that reflects what the function does
+The function name can start with a letter or underscore (not a number)
+Example
+
+A simple function that writes my name when it is called:
+
+<html>
+<body>
+
+<?php
+function writeName()
+{
+echo "Kai Jim Refsnes";
+}
+
+echo "My name is ";
+writeName();
+?>
+
+</body>
+</html>
+Output:
+
+My name is Kai Jim Refsnes
+
+PHP Functions - Adding parameters
+To add more functionality to a function, we can add parameters. A parameter is just like a variable.
+
+Parameters are specified after the function name, inside the parentheses.
+
+Example 1
+
+The following example will write different first names, but equal last name:
+
+<html>
+<body>
+
+<?php
+function writeName($fname)
+{
+echo $fname . " Refsnes.<br>";
+}
+
+echo "My name is ";
+writeName("Kai Jim");
+echo "My sister's name is ";
+writeName("Hege");
+echo "My brother's name is ";
+writeName("Stale");
+?>
+
+</body>
+</html>
+Output:
+
+My name is Kai Jim Refsnes.
+My sister's name is Hege Refsnes.
+My brother's name is Stale Refsnes.
+Example 2
+
+The following function has two parameters:
+
+<html>
+<body>
+
+<?php
+function writeName($fname,$punctuation)
+{
+echo $fname . " Refsnes" . $punctuation . "<br>";
+}
+
+echo "My name is ";
+writeName("Kai Jim",".");
+echo "My sister's name is ";
+writeName("Hege","!");
+echo "My brother's name is ";
+writeName("Ståle","?");
+?>
+
+</body>
+</html>
+Output:
+
+My name is Kai Jim Refsnes.
+My sister's name is Hege Refsnes!
+My brother's name is Ståle Refsnes?
+ 
+PHP Functions - Return values
+To let a function return a value, use the return statement.
+
+Example
+
+<html>
+<body>
+
+<?php
+function add($x,$y)
+{
+$total=$x+$y;
+return $total;
+}
+
+echo "1 + 16 = " . add(1,16);
+?>
+
+</body>
+</html>
+Output:
+
+1 + 16 = 17
+

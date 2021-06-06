@@ -1,0 +1,1 @@
+select ename,dept.deptno,dname,loc from emp join dept on emp.deptno=dept.deptno;

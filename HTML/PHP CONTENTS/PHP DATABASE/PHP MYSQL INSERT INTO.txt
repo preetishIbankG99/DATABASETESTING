@@ -1,0 +1,89 @@
+PHP MySQL Insert Into
+======================
+The INSERT INTO statement is used to insert new records in a table.
+
+Insert Data Into a Database Table
+The INSERT INTO statement is used to add new records to a database table.
+
+Syntax
+
+It is possible to write the INSERT INTO statement in two forms.
+
+The first form doesn't specify the column names where the data will be inserted, only their values:
+
+INSERT INTO table_name
+VALUES (value1, value2, value3,...)
+The second form specifies both the column names and the values to be inserted:
+
+INSERT INTO table_name (column1, column2, column3,...)
+VALUES (value1, value2, value3,...)
+
+To learn more about SQL, please visit our SQL tutorial.
+To get PHP to execute the statements above we must use the mysqli_query() function. This function is used to send a query or command to a MySQL connection.
+
+Example
+
+In the previous chapter we created a table named "Persons", with three columns; "FirstName", "LastName" and "Age". We will use the same table in this example. The following example adds two new records to the "Persons" table:
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+mysqli_query($con,"INSERT INTO Persons (FirstName, LastName, Age)
+VALUES ('Peter', 'Griffin',35)");
+
+mysqli_query($con,"INSERT INTO Persons (FirstName, LastName, Age) 
+VALUES ('Glenn', 'Quagmire',33)");
+
+mysqli_close($con);
+?>
+
+Insert Data From a Form Into a Database
+Now we will create an HTML form that can be used to add new records to the "Persons" table.
+
+Here is the HTML form:
+
+<html>
+<body>
+
+<form action="insert.php" method="post">
+Firstname: <input type="text" name="firstname">
+Lastname: <input type="text" name="lastname">
+Age: <input type="text" name="age">
+<input type="submit">
+</form>
+
+</body>
+</html>
+When a user clicks the submit button in the HTML form in the example above, the form data is sent to "insert.php".
+
+The "insert.php" file connects to a database, and retrieves the values from the form with the PHP $_POST variables.
+
+Then, the mysqli_query() function executes the INSERT INTO statement, and a new record will be added to the "Persons" table.
+
+Here is the "insert.php" page:
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+$sql="INSERT INTO Persons (FirstName, LastName, Age)
+VALUES
+('$_POST[firstname]','$_POST[lastname]','$_POST[age]')";
+
+if (!mysqli_query($con,$sql))
+  {
+  die('Error: ' . mysqli_error($con));
+  }
+echo "1 record added";
+
+mysqli_close($con);
+?>

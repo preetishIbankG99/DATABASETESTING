@@ -1,0 +1,1 @@
+select e.ename employee,m.ename manager from emp e inner join emp m on(e.mgr=m.empno);

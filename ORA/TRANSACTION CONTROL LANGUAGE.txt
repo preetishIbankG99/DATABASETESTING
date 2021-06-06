@@ -1,0 +1,20 @@
+COMMIT MAKES CHANGES PERMANENET
+===============================
+EX::Sql>INSERT INTO EMPLOYEE(Emp_id,FirstName,LastName,Department)
+VALUES('SA00120','Max','Johnson','Sales');
+Sql>COMMIT;
+ROLLBACK::restore data to its state prior to user changes
+=========================================================
+ends the current transaction and will undo any changes made since the transaction
+began.if used with savepoint it will undo part of a transaction
+EX::INSERT INTO EMPLOYEE(Empl_id,FirstName,LastName,Department)
+VALUES('SA457580','Amanda','Suarez','Sales');
+ROLLBACK;
+SAVEPOINT[point_id]:
+====================
+marks the current point in the processing of a transaction.A SAVEPOINT is a marker within  a transaction that allows for a 
+partial Rollback
+syntax::SQL>Savepoint<savepoint Name>;
+SQL>INSERT INTO BOOK_AUTHOR VALUES('A111','B130',20);
+SQL>savepoint in_book_author;
+SQL>rollback to in_book_author; 

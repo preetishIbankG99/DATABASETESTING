@@ -1,0 +1,25 @@
+<head>
+<script>
+function Number1()
+{
+var val1=123;
+try
+{
+alert('The value is:'+val1);
+}
+catch(e)
+{
+alert("Error is:"+e.description);
+}
+finally
+{
+alert("It is always Executed");
+}
+}
+</script>
+</head>
+<body bgcolor='pink'>
+<p>click the button to diaplay value..!!</p>
+<input type='button'onclick="Number1()"
+value="clickMe"/>
+</body>

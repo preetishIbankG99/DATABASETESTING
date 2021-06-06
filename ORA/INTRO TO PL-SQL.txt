@@ -1,0 +1,100 @@
+-A PL/SQL is marked with either a"DECLARE" or"BEGIN" keyword,and ends with the keyword "END"
+-Only BEGIN and END keywords are mandatory.
+-A semicolon(;) has to be placed after the "END" keyword.
+
+SYNTAX
+========
+SQL>DECLARE
+Variable Declarations,
+User_Defined Exception
+BEGIN
+SQL Statement
+PL/SQL Statement
+EXCEPTION
+Action To Perform When Error Occur.
+END;
+
+A simple pl/sql block
+=====================
+sql>BEGIN
+NULL;
+END; >>>>>>>>>>NULL BLOCK
+
+sql>BEGIN
+RETURN;
+END;>>>>>>>>>>>BLOCK WITH RETURN CLAUSE
+
+sql>DECLARE
+BEGIN
+NULL;
+END;>>>>>>>>>>>NULL BLOCK WITH DECLARE
+
+sql>DECLARE
+BEGIN
+NULL;
+EXCEPTION
+WHEN OTHERS THEN
+NULL;
+END;>>>>>>>>>>>NULL BLOCK WITH DECLARE AND EXCEPTION ASSOCIATED WITH A PRAGMA CLAUSE
+ANONYMOUS BLOCK
+================
+SQL>DECLARE
+BEGIN
+NULL;
+EXCEPTION
+WHEN OTHERS THEN
+NULL;
+END;>>>>>ANONYMOUS NULL BLOCK WITH DECLARE AND EXCEPTION ASSOCIATED WITH A PRAGMA CLAUSE
+
+NAMED BLOCKS
+=============
+SQL><<FirstBlock>>
+DECLARE
+BEGIN
+NULL;
+EXCEPTION
+WHEN OTHERS THEN
+NULL;
+END FirstBlock;>>>>Named NULL BLOCK with DECLARE and EXCEPTION Associated with a PRAGMA clause
+
+OUTPUT STATEMENT IN PL/SQL
+==========================
+SYNTAX::DBMS_OUTPUT.PUT_LINE('Message');
+----------------------------------------
+ex::sql>BEGIN
+DBMS_OUTPUT.PUT_LINE('First Program in PL/SQL');
+DBMS_OUTPUT.PUT_LINE('ILLUSTRATION BY');
+DBMS_OUTPUT.PUT_LINE("satya technologies");
+END;
+/
+
+EX::Dbms_output.put_line('satya technologies');
+STEPS TO COMPILE AND PRODUCE O/P
+================================
+sql>BEGIN
+DBMS_OUTPUT.ENABLE;
+DBMS_OUTPUT.PUT_LINE('First Program in PL/SQL');
+DBMS_OUTPUT.PUT_LINE('ILLUSTRATION BY');
+DBMS_OUTPUT.PUT_LINE("satya technologies");
+END;
+/
+
+SQL>BEGIN
+DBMS_OUTPUT.PUT_LINE('TEXT WITH OUT QUOTES');
+DBMS_OUTPUT.PUT_LINE("'TEXT WITH IN QUOTES'");
+DBMS_OUTPUT.PUT_LINE("'TEXT" "WITH" "IN" "QUOTES'");
+DBMS_OUTPUT.PUT_LINE(Q'!'TEXT WITH IN QUOTES'!');
+DBMS_OUTPUT.PUT_LINE(Q'!'TEXT' 'WITH' 'IN' 'QUOTES'!');
+END;
+/
+
+
+
+
+
+                                                                                                                                                                                      
+
+
+
+
+

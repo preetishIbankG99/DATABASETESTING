@@ -1,0 +1,74 @@
+HTML5 New Form Elements
+HTML5 has the following new form elements:
+
+<datalist>
+<keygen>
+<output>
+Note: Not all major browsers support all the new form elements. However, you can already start using them; If they are not supported, they will behave as regular text fields.
+
+HTML5 <datalist> Element
+The <datalist> element specifies a list of pre-defined options for an <input> element.
+
+The <datalist> element is used to provide an "autocomplete" feature on <input> elements. Users will see a drop-down list of pre-defined options as they input data.
+
+Use the <input> element's list attribute to bind it together with a <datalist> element.
+
+
+Example
+
+An <input> element with pre-defined values in a <datalist>:
+
+<input list="browsers">
+
+<datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+
+
+
+HTML5 <keygen> Element
+The purpose of the <keygen> element is to provide a secure way to authenticate users.
+
+The <keygen> tag specifies a key-pair generator field in a form.
+
+When the form is submitted, two keys are generated, one private and one public.
+
+The private key is stored locally, and the public key is sent to the server. The public key could be used to generate a client certificate to authenticate the user in the future.
+
+
+Example
+
+A form with a keygen field:
+
+<form action="demo_keygen.asp" method="get">
+Username: <input type="text" name="usr_name">
+Encryption: <keygen name="security">
+<input type="submit">
+</form>
+
+
+
+HTML5 <output> Element
+The <output> element represents the result of a calculation (like one performed by a script).
+
+
+Example
+
+Perform a calculation and show the result in an <output> element:
+
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+<input type="range" id="a" value="50">100 +
+<input type="number" id="b" value="50">=
+<output name="x" for="a b"></output>
+</form>
+
+
+HTML5 New Form Elements
+Tag	Description
+<datalist>	Specifies a list of pre-defined options for an <input> element
+<keygen>	Specifies a key-pair generator field in a form
+<output>	Represents the result of a calculation

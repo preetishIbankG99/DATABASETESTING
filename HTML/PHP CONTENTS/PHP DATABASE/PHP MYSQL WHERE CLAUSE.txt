@@ -1,0 +1,41 @@
+PHP MySQL The Where Clause
+
+==========================
+The WHERE clause is used to filter records.
+
+The WHERE clause
+The WHERE clause is used to extract only those records that fulfill a specified criterion.
+
+Syntax
+
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator value
+To learn more about SQL, please visit our SQL tutorial.
+
+To get PHP to execute the statement above we must use the mysqli_query() function. This function is used to send a query or command to a MySQL connection.
+
+Example
+
+The following example selects all rows from the "Persons" table where "FirstName='Peter'":
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+$result = mysqli_query($con,"SELECT * FROM Persons
+WHERE FirstName='Peter'");
+
+while($row = mysqli_fetch_array($result))
+  {
+  echo $row['FirstName'] . " " . $row['LastName'];
+  echo "<br>";
+  }
+?>
+The output of the code above will be:
+
+Peter Griffin

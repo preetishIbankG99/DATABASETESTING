@@ -1,0 +1,85 @@
+PHP Database ODBC
+=================
+
+ODBC is an Application Programming Interface (API) that allows you to connect to a data source (e.g. an MS Access database).
+
+Create an ODBC Connection
+With an ODBC connection, you can connect to any database, on any computer in your network, as long as an ODBC connection is available.
+
+Here is how to create an ODBC connection to a MS Access Database: 
+
+Open the Administrative Tools icon in your Control Panel.
+Double-click on the Data Sources (ODBC) icon inside.
+Choose the System DSN tab.
+Click on Add in the System DSN tab.
+Select the Microsoft Access Driver. Click Finish.
+In the next screen, click Select to locate the database.
+Give the database a Data Source Name (DSN).
+Click OK.
+Note that this configuration has to be done on the computer where your web site is located. If you are running Internet Information Server (IIS) on your own computer, the instructions above will work, but if your web site is located on a remote server, you have to have physical access to that server, or ask your web host to to set up a DSN for you to use.
+
+Connecting to an ODBC
+The odbc_connect() function is used to connect to an ODBC data source. The function takes four parameters: the data source name, username, password, and an optional cursor type.
+
+The odbc_exec() function is used to execute an SQL statement.
+
+Example
+
+The following example creates a connection to a DSN called northwind, with no username and no password. It then creates an SQL and executes it:
+
+$conn=odbc_connect('northwind','','');
+$sql="SELECT * FROM customers";
+$rs=odbc_exec($conn,$sql);
+
+Retrieving Records
+The odbc_fetch_row() function is used to return records from the result-set. This function returns true if it is able to return rows, otherwise false.
+
+The function takes two parameters: the ODBC result identifier and an optional row number:
+
+odbc_fetch_row($rs)
+
+Retrieving Fields from a Record
+The odbc_result() function is used to read fields from a record. This function takes two parameters: the ODBC result identifier and a field number or name.
+
+The code line below returns the value of the first field from the record:
+
+$compname=odbc_result($rs,1);
+The code line below returns the value of a field called "CompanyName":
+
+$compname=odbc_result($rs,"CompanyName");
+
+Closing an ODBC Connection
+The odbc_close() function is used to close an ODBC connection.
+
+odbc_close($conn);
+
+An ODBC Example
+The following example shows how to first create a database connection, then a result-set, and then display the data in an HTML table.
+
+<html>
+<body>
+
+<?php
+$conn=odbc_connect('northwind','','');
+if (!$conn)
+  {exit("Connection Failed: " . $conn);}
+$sql="SELECT * FROM customers";
+$rs=odbc_exec($conn,$sql);
+if (!$rs)
+  {exit("Error in SQL");}
+echo "<table><tr>";
+echo "<th>Companyname</th>";
+echo "<th>Contactname</th></tr>";
+while (odbc_fetch_row($rs))
+  {
+  $compname=odbc_result($rs,"CompanyName");
+  $conname=odbc_result($rs,"ContactName");
+  echo "<tr><td>$compname</td>";
+  echo "<td>$conname</td></tr>";
+  }
+odbc_close($conn);
+echo "</table>";
+?>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+PHP Create Database and Tables
+==============================
+A database holds one or more tables.
+
+Create a Database
+The CREATE DATABASE statement is used to create a database table in MySQL.
+
+We must add the CREATE DATABASE statement to the mysqli_query() function to execute the command.
+
+The following example creates a database named "my_db":
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+// Create database
+$sql="CREATE DATABASE my_db";
+if (mysqli_query($con,$sql))
+  {
+  echo "Database my_db created successfully";
+  }
+else
+  {
+  echo "Error creating database: " . mysqli_error($con);
+  }
+?>
+
+Create a Table
+The CREATE TABLE statement is used to create a table in MySQL.
+
+We must add the CREATE TABLE statement to the mysqli_query() function to execute the command.
+
+The following example creates a table named "Persons", with three columns. The column names will be "FirstName", "LastName" and "Age":
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+// Create table
+$sql="CREATE TABLE persons(FirstName CHAR(30),LastName CHAR(30),Age INT)";
+
+// Execute query
+if (mysqli_query($con,$sql))
+  {
+  echo "Table persons created successfully";
+  }
+else
+  {
+  echo "Error creating table: " . mysqli_error($con);
+  }
+?>
+Note: When you create a database field of type CHAR, you must specify the maximum length of the field, e.g. CHAR(50).
+
+The data type specifies what type of data the column can hold. For a complete reference of all the data types available in MySQL, go to our complete Data Types reference.
+Primary Keys and Auto Increment Fields
+Each table in a database should have a primary key field.
+
+A primary key is used to uniquely identify the rows in a table. Each primary key value must be unique within the table. Furthermore, the primary key field cannot be null because the database engine requires a value to locate the record.
+
+The following example sets the PID field as the primary key field. The primary key field is often an ID number, and is often used with the AUTO_INCREMENT setting. AUTO_INCREMENT automatically increases the value of the field by 1 each time a new record is added. To ensure that the primary key field cannot be null, we must add the NOT NULL setting to the field:
+
+$sql = "CREATE TABLE Persons 
+(
+PID INT NOT NULL AUTO_INCREMENT, 
+PRIMARY KEY(PID),
+FirstName CHAR(15),
+LastName CHAR(15),
+Age INT
+)";

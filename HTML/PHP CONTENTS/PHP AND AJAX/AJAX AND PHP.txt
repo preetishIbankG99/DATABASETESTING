@@ -1,0 +1,149 @@
+PHP - AJAX and PHP
+==================JAX is used to create more interactive applications.
+
+AJAX PHP Example
+The following example will demonstrate how a web page can communicate with a web server while a user type characters in an input field:
+
+Example
+
+Start typing a name in the input field below:
+
+First name: 
+Suggestions:
+
+
+
+Example Explained - The HTML Page
+When a user types a character in the input field above, the function "showHint()" is executed. The function is triggered by the "onkeyup" event:
+
+<html>
+<head>
+<script>
+function showHint(str)
+{
+if (str.length==0)
+  { 
+  document.getElementById("txtHint").innerHTML="";
+  return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","gethint.php?q="+str,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<p><b>Start typing a name in the input field below:</b></p>
+<form> 
+First name: <input type="text" onkeyup="showHint(this.value)">
+</form>
+<p>Suggestions: <span id="txtHint"></span></p>
+
+</body>
+</html>
+Source code explanation:
+
+If the input field is empty (str.length==0), the function clears the content of the txtHint placeholder and exits the function.
+
+If the input field is not empty, the showHint() function executes the following:
+
+Create an XMLHttpRequest object
+Create the function to be executed when the server response is ready
+Send the request off to a file on the server
+Notice that a parameter (q) is added to the URL (with the content of the input field)
+The PHP File
+The page on the server called by the JavaScript above is a PHP file called "gethint.php".
+
+The source code in "gethint.php" checks an array of names, and returns the corresponding name(s) to the browser:
+
+<?php
+// Fill up array with names
+$a[]="Anna";
+$a[]="Brittany";
+$a[]="Cinderella";
+$a[]="Diana";
+$a[]="Eva";
+$a[]="Fiona";
+$a[]="Gunda";
+$a[]="Hege";
+$a[]="Inga";
+$a[]="Johanna";
+$a[]="Kitty";
+$a[]="Linda";
+$a[]="Nina";
+$a[]="Ophelia";
+$a[]="Petunia";
+$a[]="Amanda";
+$a[]="Raquel";
+$a[]="Cindy";
+$a[]="Doris";
+$a[]="Eve";
+$a[]="Evita";
+$a[]="Sunniva";
+$a[]="Tove";
+$a[]="Unni";
+$a[]="Violet";
+$a[]="Liza";
+$a[]="Elizabeth";
+$a[]="Ellen";
+$a[]="Wenche";
+$a[]="Vicky";
+
+//get the q parameter from URL
+$q=$_GET["q"];
+
+//lookup all hints from array if length of q>0
+if (strlen($q) > 0)
+  {
+  $hint="";
+  for($i=0; $i<count($a); $i++)
+    {
+    if (strtolower($q)==strtolower(substr($a[$i],0,strlen($q))))
+      {
+      if ($hint=="")
+        {
+        $hint=$a[$i];
+        }
+      else
+        {
+        $hint=$hint." , ".$a[$i];
+        }
+      }
+    }
+  }
+
+// Set output to "no suggestion" if no hint were found
+// or to the correct values
+if ($hint == "")
+  {
+  $response="no suggestion";
+  }
+else
+  {
+  $response=$hint;
+  }
+
+//output the response
+echo $response;
+?>
+Explanation: If there is any text sent from the JavaScript (strlen($q) > 0), the following happens:
+
+Find a name matching the characters sent from the JavaScript
+If no match were found, set the response string to "no suggestion"
+If one or more matching names were found, set the response string to all these names
+The response is sent to the "txtHint" placeholder

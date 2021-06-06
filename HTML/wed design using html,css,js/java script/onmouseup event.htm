@@ -1,0 +1,22 @@
+<html>
+<head>
+<script type="text/javascript">
+function whichElement(e)
+{
+var targ
+if(!e)var e=window.event
+if(e.target)targ=e.target
+else if(e.srcElement)targ=e.srcElement
+if(targ.nodeType==3)
+targ=targ.parentNode
+var tname
+tname=targ.tagName
+alert("you clicked on a"+tname+"element.")
+}
+</script>
+</head>
+<body onmouseup="whichElement(event)">
+<h2>This is a header</h2>
+<p>This is a paragraph</p>
+<img border="0" src="nicolas-sassoon-16.ANI-GIF.com.gif"alt="Nicolas">
+</body></html>

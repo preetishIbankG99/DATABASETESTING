@@ -1,0 +1,53 @@
+PHP MySQL Order By Keyword
+==========================
+The ORDER BY keyword is used to sort the data in a recordset.
+
+The ORDER BY Keyword
+The ORDER BY keyword is used to sort the data in a recordset.
+
+The ORDER BY keyword sort the records in ascending order by default.
+
+If you want to sort the records in a descending order, you can use the DESC keyword.
+
+Syntax
+
+SELECT column_name(s)
+FROM table_name
+ORDER BY column_name(s) ASC|DESC
+To learn more about SQL, please visit our SQL tutorial.
+
+Example
+
+The following example selects all the data stored in the "Persons" table, and sorts the result by the "Age" column:
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+$result = mysqli_query($con,"SELECT * FROM Persons ORDER BY age");
+
+while($row = mysqli_fetch_array($result))
+  {
+  echo $row['FirstName'];
+  echo " " . $row['LastName'];
+  echo " " . $row['Age'];
+  echo "<br>";
+  }
+
+mysqli_close($con);
+?>
+The output of the code above will be:
+
+Glenn Quagmire 33
+Peter Griffin 35
+
+Order by Two Columns
+It is also possible to order by more than one column. When ordering by more than one column, the second column is only used if the values in the first column are equal:
+
+SELECT column_name(s)
+FROM table_name
+ORDER BY column1, column2

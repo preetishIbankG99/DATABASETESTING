@@ -1,0 +1,42 @@
+PHP MySQL Delete
+================
+The DELETE statement is used to delete records in a table.
+
+Delete Data In a Database
+The DELETE FROM statement is used to delete records from a database table.
+
+Syntax
+
+DELETE FROM table_name
+WHERE some_column = some_value
+
+Note: Notice the WHERE clause in the DELETE syntax. The WHERE clause specifies which record or records that should be deleted. If you omit the WHERE clause, all records will be deleted!
+To learn more about SQL, please visit our SQL tutorial.
+
+To get PHP to execute the statement above we must use the mysqli_query() function. This function is used to send a query or command to a MySQL connection.
+
+Example
+
+Look at the following "Persons" table:
+
+FirstName	LastName	Age
+Peter	Griffin	35
+Glenn	Quagmire	33
+The following example deletes all the records in the "Persons" table where LastName='Griffin':
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+mysqli_query($con,"DELETE FROM Persons WHERE LastName='Griffin'");
+
+mysqli_close($con);
+?>
+After the deletion, the table will look like this:
+
+FirstName	LastName	Age
+Glenn	Quagmire	33

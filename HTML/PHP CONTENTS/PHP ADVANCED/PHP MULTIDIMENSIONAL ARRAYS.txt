@@ -1,0 +1,75 @@
+PHP Multidimensional Arrays
+===========================
+
+An array can also contain another array as a value, which in turn can hold other arrays as well. In such a way we can create two- or three-dimensional arrays:
+
+Example
+
+<?php
+// A two-dimensional array:
+$cars = array
+  (
+  array("Volvo",100,96),
+  array("BMW",60,59),
+  array("Toyota",110,100)
+  );
+?>
+
+PHP - Multidimensional Arrays
+A multidimensional array is an array containing one or more arrays.
+
+In a multidimensional array, each element in the main array can also be an array. And each element in the sub-array can be an array, and so on.
+
+Example
+
+In this example we create a multidimensional array, with automatically assigned ID keys:
+
+$families = array
+  (
+  "Griffin"=>array
+  (
+  "Peter",
+  "Lois",
+  "Megan"
+  ),
+  "Quagmire"=>array
+  (
+  "Glenn"
+  ),
+  "Brown"=>array
+  (
+  "Cleveland",
+  "Loretta",
+  "Junior"
+  )
+  );
+The array above would look like this if written to the output:
+
+Array
+(
+[Griffin] => Array
+  (
+  [0] => Peter
+  [1] => Lois
+  [2] => Megan
+  )
+[Quagmire] => Array
+  (
+  [0] => Glenn
+  )
+[Brown] => Array
+  (
+  [0] => Cleveland
+  [1] => Loretta
+  [2] => Junior
+  )
+)
+Example 2
+
+Lets try displaying a single value from the array above:
+
+echo "Is " . $families['Griffin'][2] . 
+" a part of the Griffin family?";
+The code above will output:
+
+Is Megan a part of the Griffin family?

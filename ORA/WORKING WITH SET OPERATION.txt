@@ -1,0 +1,28 @@
+UNION::
+=======
+Combines the result of two select statements into one result set,and then eliminates any duplicate rows from that result set
++>select empno,ename from emp where deptno=10 union select empno,ename from emp where deptno=30 order by 1;
++>select empno,ename,job from emp where deptno=(select deptno from dept where dname='sales') union 
+select empno,ename,job from emp where deptno=(select deptno from dept where dname='Accounting')order by 1;
++>select job from emp where deptno=20 union select job from emp where deptno=30;
+UNION ALL::
+===========
+combines the result of  two select statements into one result set including the duplicates
++>select empno,ename from emp where deptno=10 union all select empno,ename from emp where deptno=30 order by 1;
++>select job from emp where deptno=20 union all select job from emp where deptno=30;
+INTERSECT::
+===========
+Returns only those rows that are returned by each of two select statements
++>select empno,ename from emp where deptno=10 intersect
+select empno,ename from emp where deptno=30 order by 1;
++>select job from emp where deptno=20 intersect
+select job from emp where deptno=30;
+MINUS::
+========
+Takes the result set  of one select statement,and removes those rows that are also returned by a second select statement
++>select empno,ename from emp where deptno=10 minus
+select empno,ename from emp where deptno=30 order by 1;
++>select job from emp where deptno=20 minus
+select job from emp where deptno=10;
++>select rownum,ename from emp where rownum<7 minus
+select rownum,ename from emp where rownum<6;

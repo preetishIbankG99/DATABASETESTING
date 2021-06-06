@@ -1,0 +1,1 @@
+select EMP1.Ename"Employee Name",EMP2.Ename"Managers Name"FROM EMP1,EMP2 WHERE EMP1.Mgr=EMP2.EMPNO;

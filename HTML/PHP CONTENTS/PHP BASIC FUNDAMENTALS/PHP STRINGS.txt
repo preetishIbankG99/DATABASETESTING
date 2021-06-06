@@ -1,0 +1,58 @@
+String Variables in PHP
+========================
+String variables are used for values that contain characters.
+
+After we have created a string variable we can manipulate it. A string can be used directly in a function or it can be stored in a variable.
+
+In the example below, we create a string variable called txt, then we assign the text "Hello world!" to it. Then we write the value of the txt variable to the output:
+
+Example
+
+<?php
+$txt="Hello world!";
+echo $txt;
+?>
+
+The PHP Concatenation Operator
+==============================
+There is only one string operator in PHP.
+
+The concatenation operator (.)  is used to join two string values together.
+
+The example below shows how to concatenate two string variables together:
+
+Example
+
+<?php
+$txt1="Hello world!";
+$txt2="What a nice day!";
+echo $txt1 . " " . $txt2;
+?>
+
+The PHP strlen() function
+=========================
+Sometimes it is useful to know the length of a string value.
+
+The strlen() function returns the length of a string, in characters.
+
+The example below returns the length of the string "Hello world!":
+EXAMPLE
+========
+<?php
+echo strlen("Hello world!");
+?>
+
+The PHP strpos() function
+=========================
+The strpos() function is used to search for a character or a specific text within a string.
+
+If a match is found, it will return the character position of the first match. If no match is found, it will return FALSE.
+
+The example below searches for the text "world" in the string "Hello world!":
+
+Example
+-------
+
+<?php
+echo strpos("Hello world!","world");
+?>

@@ -1,0 +1,85 @@
+VIEW
+======
+-It is a logical table based on one or more tables or views.
+-A view in practically  contains no data by itself
+-the tables upon which a view is based are called as base tables
+-it can be created as object views or relational views
+-object views supports
++LOB'S
++object types
++Ref's
++Nested Tables
++Varrays
+SYNTAX OF VIEW
+===============
+SQL>CREATE[OR REPLACE][{FORCE/NOFORCE}]VIEW   viewname
+[(Alias Name[,AliasName...])]AS SubQuery[WITH{CHECK OPTION/READ ONLY}]
+[CONSTRAINT ConstraintName];
+OR REPLACE
+==========
+SPECIFIES THE VIEWS HAS TO BEREPLACED IF ALREADY EXISTING.
+FORCE
+=======
+SPECIFIES THE VIEW HAS TO BE CREATED EVEN IF THE BASE TABLES DOWS NOT EXIST
+NOFORCE
+========
+SPECIFIES THE VIEW SHOULD NOT BE CREATED IF THE BASE TABLE DOES NOT EXIST,WHICH IS DEFAULT.
+ALIAS NAME
+==========
+SPECIFIES THE NAME OF AN ALIAS FOR AN EXPRESSION IN THE SUBQUERY
+WITH CHECK OPTION
+==================
+SPECIFIES THAT  ONLY ROWS THAT WOUL BE RETRIEVED BY THE SUB QUERY CAN ONLY BE INSERTED ,UPDATED OR DELETED
+CONSTRAINT
+===========
+CONSTRAINT_NAME SPECIFIES THE NAME OF THE CONSTRAINT AS WITH CHECK OPTION OR READ  ONLY CONSTRAINT
+WITH READ ONLY
+==============
+SPECIFIES THAT ROWS MUST ONLY BE READ FROM THE BASE TABLES.
+
+TYPES OF VIEWS
+==============
+A)SIMPLE::WHICH CONTAINS A SUBQUERY THAT RETRIEVES DATA FROM ONLY ONE BASE TABLE.
+
+B)COMPLEX::CONTAINS A SUBQUEY THAT CAN PERFORM ANY OF THESE ACTIONS
+-RETRIEVING FROM MULTIPLE BASE TABLES
+-GROUPS ROWS USING A GROUP BY OR DISTINCT CLAUSE
+-CONTAINS A FUNCTION CALL
+EXAMPLES::
+===========
+SIMPLE VIEWS::CREATE VIEW Employees AS SELECT Empno"ID Number",Ename Name,sal"Basic  Salary",Job designation FROm Emp;
+SELECTING DATA FROM A VIEW
+==========================
+select Name,Designation FROM Employees;
+select"ID Number",Name,TO_CHAR("Basic Salary",'99,99,999.99')Monthly,"Basic Salary"*12 Annual FROM Employee WHERE"Basic Salary">2500;
+COMPLEX VIEWS
+=============
+CREATE VIEW EmpInfo AS SELECT E.Empno EmployeeID,E.Ename Name,D.Deptno DepartmentID,D.Dname DepartmentName FROM EMP E,Dept D
+WHERE D.Deptno=E.Deptno ORDER BY D.Deptno;
+VIEWS IN DATA DICTIONARY::once the view is created we can query upon the data dictionary table called user_views to see the Name and Definition
+========================
+SELECT VIEW_NAME,TEXT
+FROM USER_VIEWS;
+CREATING VIEW WITH COLUMN DECLARATION
+======================================
+CREATE VIEW DeptsalSummary(DepartmentName,MinimumSalary,MaxSalary,AverageSalary,SalarySum)As SELECT D.Dname,MIN(E.Sal),MAX(E.sal),
+AVG(E.Sal),SUM(E.Sal)FROM Emp E,Dept D WHERE E.Deptno=D.Deptno GROUP BY D.Dname;
+DROPPING A VIEW
+================
+DROP VIEW viewName;
+ex::DROP VIEW InsertDept;
+USING CHECK option clause
+=========================CREATE OR REPLACE VIEW EDept30 AS SELECT*FROM Emp WHERE Deptno=30
+WITH CHECK OPTION CONSTRAINT EDept30Chk View;
+APPLYING WITH READ ONLY OPTION
+==============================
+CREATE OR REPLACE VIEW EDptRead(EmpID,Name,Designation)
+AS SELECT Empno,Ename,Job FROM Emp WHERE Deptno=20 WITH READ ONLY;
+TABLE WITH DIFFERENT ENABLE STATE
+===================================
+CREATE TABLE MyMaster(MastID NUMBER(2)CONSTRAINT MastIDPK PRIMARY KEY
+MastName VARCHAR2(10)CONSTRAINT MastNameCHK
+CHECK(MastName =UPPER(MastName),MastDate DATE
+CONSTRAINT MastDateNN NOT NULL);
+
+

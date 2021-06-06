@@ -1,0 +1,45 @@
+PHP Forms and User Input
+========================
+The PHP $_GET and $_POST variables are used to retrieve information from forms, like user input.
+
+PHP Form Handling
+The most important thing to notice when dealing with HTML forms and PHP is that any form element in an HTML page will automatically be available to your PHP scripts.
+
+Example
+=======
+
+The example below contains an HTML form with two input fields and a submit button:
+
+<html>
+<body>
+
+<form action="welcome.php" method="post">
+Name: <input type="text" name="fname">
+Age: <input type="text" name="age">
+<input type="submit">
+</form>
+
+</body>
+</html>
+When a user fills out the form above and clicks on the submit button, the form data is sent to a PHP file, called "welcome.php":
+
+"welcome.php" looks like this:
+
+<html>
+<body>
+
+Welcome <?php echo $_POST["fname"]; ?>!<br>
+You are <?php echo $_POST["age"]; ?> years old.
+
+</body>
+</html>
+Output could be something like this:
+
+Welcome John!
+You are 28 years old.
+The PHP $_GET and $_POST variables will be explained in the next chapters.
+
+Form Validation
+User input should be validated on the browser whenever possible (by client scripts). Browser validation is faster and reduces the server load.
+
+You should consider server validation if the user input will be inserted into a database. A good way to validate a form on the server is to post the form to itself, instead of jumping to a different page. The user will then get the error messages on the same page as the form. This makes it easier to discover the error.

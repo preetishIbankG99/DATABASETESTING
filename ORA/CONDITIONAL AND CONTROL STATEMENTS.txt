@@ -1,0 +1,184 @@
+                  CONDITION AND CONTROL STATEMENTS
+=========================================================================
+CONDITIONAL STATEMENSTS EXAMPLES
+---------------------------------
+*simple if
+*if-then-else
+*nested if
+*switch case
+
+SIMPLE IF
+=========
+Syntax::if(condition)then
+statement 1;
+statement n;
+End if;
+
+Ex::Declare
+A number:=&a;
+B number:=&b;
+Begin
+If(a=b)then
+Dbms_output.put_line('Naresh technologies');
+End if;
+End;
+
+IF-ELSE
+========
+Syntax:If(condition)then
+Statement;
+Else
+Statement;
+End if;
+
+EX::Declare
+A number:=&a;
+B number:=&b;
+Begin
+If(a>b)then
+Dbms_output.put_line('a is big');
+Else
+Dbms_output.put_line('b is big');
+End if;
+End;
+
+NESTED IF
+==========
+Syntax::If(condition)then
+If(condition)then
+If(condition)then
+Statement 1;
+Else
+Statement 2;
+End if;
+Else
+Statement 3;
+End if;
+Else
+Statement 4;
+End if;
+
+EX::
+-----
+Declare
+Cno number:=&cno;
+Cname varchar2(15):='&cname';
+Srno number:=&srno;
+Erno number:=&erno;
+St varchar2(1):='&st';
+Uc number;
+Tc number;
+Begin
+Uc:=erno-srno;
+If(st='I')then
+If(uc<=100)then
+Tc:=uc*5;
+Else
+Tc:=uc*6;
+End if;
+Else
+If(st='c')then
+If(uc<=100)then
+Tc:=uc*4;
+Else
+Tc:=uc*5;
+End if;
+Else
+If(st='r')then
+If(uc<=100)then
+Tc:=uc*3;
+Else
+Tc:=uc*4;
+End if;
+End if;
+Dbms_output.put_line('the total charge is'||tc);
+End;
+ITERATIVE STATEMENTS IN PL/SQL;
+================================
+1-SIMPLE LOOP
+2-WHILE LOOP
+3-FOR LOOP
+4-FOR-REVERSE LOOP
+
+Simple Loop
+============
+Syntax::LOOP
+statements
+EXIT;
+{or EXIT WHEN condition;}
+END LOOP;
+
+EX++
+-----
+Declare
+i number:=1;
+Begin
+Loop
+Dbms_output.put_line('Satya Technologies');
+i:=i+1;
+exit when(i>10);
+end loop;
+end;
+
+While Loop
+===========
+Synatax::WHILE<condition>LOOP
+statements;
+END LOOP:
+
+EX::
+____
+Declare
+i number:=1;
+Begin
+While(i<=10)loop
+Dbms_output.put_line(i);
+i:=i+1;
+end loop;
+end;
+
+FOR LOOP
+==========
+Syntax::
+----------
+FOR counter IN val1..val2
+LOOP statements;
+END LOOP;
++val1-start integer value.
++val2-End integer value.
+
+Ex::
+======
+Declare
+i number:=1;
+begin
+For i in1..5 loop
+Dbms_output.put_line(i*2);
+end loop;
+end;
+
+FOR REVERSE
+===========
+SYNTAX::
+--------
+FOR counter IN reverse val1..val2
+LOOP statements;
+END LOOP;
+EX::Declare
+i number:=1;
+Begin
+For i in reverse1..10 loop
+Dbms_output.put_line(i);
+end loop;
+end;
+
+
+
+
+
+
+
+
+
+
+

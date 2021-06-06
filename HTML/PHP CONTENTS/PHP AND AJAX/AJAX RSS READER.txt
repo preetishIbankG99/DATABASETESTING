@@ -1,0 +1,122 @@
+PHP Example - AJAX RSS Reader
+=============================
+An RSS Reader is used to read RSS Feeds.
+
+AJAX RSS Reader
+The following example will demonstrate an RSS reader, where the RSS-feed is loaded into a webpage without reloading:
+
+
+
+RSS-feed will be listed here...
+Example Explained - The HTML Page
+When a user selects an RSS-feed in the dropdown list above, a function called "showResult()" is executed. The function is triggered by the "onchange" event:
+
+<html>
+<head>
+<script>
+function showRSS(str)
+{
+if (str.length==0)
+  { 
+  document.getElementById("rssOutput").innerHTML="";
+  return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("rssOutput").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","getrss.php?q="+str,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<form>
+<select onchange="showRSS(this.value)">
+<option value="">Select an RSS-feed:</option>
+<option value="Google">Google News</option>
+<option value="MSNBC">MSNBC News</option>
+</select>
+</form>
+<br>
+<div id="rssOutput">RSS-feed will be listed here...</div>
+</body>
+</html>
+The showResult() function does the following:
+
+Check if an RSS-feed is selected
+Create an XMLHttpRequest object
+Create the function to be executed when the server response is ready
+Send the request off to a file on the server
+Notice that a parameter (q) is added to the URL (with the content of the dropdown list)
+The PHP File
+The page on the server called by the JavaScript above is a PHP file called "getrss.php":
+
+<?php
+//get the q parameter from URL
+$q=$_GET["q"];
+
+//find out which feed was selected
+if($q=="Google")
+  {
+  $xml=("http://news.google.com/news?ned=us&topic=h&output=rss");
+  }
+elseif($q=="MSNBC")
+  {
+  $xml=("http://rss.msnbc.msn.com/id/3032091/device/rss/rss.xml");
+  }
+
+$xmlDoc = new DOMDocument();
+$xmlDoc->load($xml);
+
+//get elements from "<channel>"
+$channel=$xmlDoc->getElementsByTagName('channel')->item(0);
+$channel_title = $channel->getElementsByTagName('title')
+->item(0)->childNodes->item(0)->nodeValue;
+$channel_link = $channel->getElementsByTagName('link')
+->item(0)->childNodes->item(0)->nodeValue;
+$channel_desc = $channel->getElementsByTagName('description')
+->item(0)->childNodes->item(0)->nodeValue;
+
+//output elements from "<channel>"
+echo("<p><a href='" . $channel_link
+  . "'>" . $channel_title . "</a>");
+echo("<br>");
+echo($channel_desc . "</p>");
+
+//get and output "<item>" elements
+$x=$xmlDoc->getElementsByTagName('item');
+for ($i=0; $i<=2; $i++)
+  {
+  $item_title=$x->item($i)->getElementsByTagName('title')
+  ->item(0)->childNodes->item(0)->nodeValue;
+  $item_link=$x->item($i)->getElementsByTagName('link')
+  ->item(0)->childNodes->item(0)->nodeValue;
+  $item_desc=$x->item($i)->getElementsByTagName('description')
+  ->item(0)->childNodes->item(0)->nodeValue;
+
+  echo ("<p><a href='" . $item_link
+  . "'>" . $item_title . "</a>");
+  echo ("<br>");
+  echo ($item_desc . "</p>");
+  }
+?>
+When a request for an RSS feed is sent from the JavaScript, the following happens:
+
+Check which feed was selected
+Create a new XML DOM object
+Load the RSS document in the xml variable
+Extract and output elements from the channel element
+Extract and output elements from the item elements

@@ -1,0 +1,2 @@
+1]select ename,sal,grade,dept.deptno,dname from emp join dept on emp.deptno=dept.deptno join salgrade on emp.sal between losal and hisal;
+2]select e.ename,m.ename,sal,grade,d.deptno,dname from emp e inner join dept d on e.deptno inner join emp mon e.empno=m.mgr inner join salgrade s on e.sal between losal and hisal;

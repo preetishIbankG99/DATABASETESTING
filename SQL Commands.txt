@@ -1,0 +1,244 @@
+SQL
+####################################
+
+1)DDL(DATA DEFINITION LANGUAGE):
+-CREATE,ALTER,DROP,TRUNCATE,RENAME
+
+2)DML(DATA MANIPULATION LANGUAGE):
+-INSERT,UPDATE,DELETE
+
+3)DRL/DQL(DATA RETRIEVAL/DATA QUERY LANGUAGE):
+-SELECT
+
+4)TCL(TRANSACTION CONTROL LANGUAGE)
+-COMMIT,ROLLBACK,SAVE POINT
+
+5)DCL(DATA CONTROL LANGUAGE)
+-GRANT,REVOKE
+=======================================================================================================
+create table<<TABLE NAME>>(col1 datatype,col2 datatype,col3 datatype.....);
+Example:CREATE TABLE STUDENT(SNO iNT(5),SNAME VARCHAR(15),MARKS INT(3));
+
+(WHERE is used to filtering records based on conditions)
+SELECT * FROM STUDENT WHERE MARKS>70;
+
+SELECT *FROME STUDENT WHERE SNAME='PREETISH';
+
+SELECT * FROM STUDENT WHERE SNO=4;
+
+Distinct (displays unique records from a table)
+
+SELECT DISTINCT MARKS FROM STUDENTS;
+
+select distinct ename from emp
+
+LOGICAL(AND,OR,NOT)
+
+SELECT * FROM STUDENT WHERE SNO=4 AND SNAME='PREETISH';
+select * from emp WHERE JOB='CLERK' AND ENAME='SMITH'
+
+SELECT * FROM STUDENT WHERE SNO=4 OR MARKS=70;
+select * from emp WHERE JOB='CLERK' OR ENAME='SMITH'
+
+
+SELECT * FROM STUDENT WHERE NOT SNAME='PREETISH';
+select * from emp WHERE NOT JOB='CLERK' 
+
+BETWEEN AND NOT BETWEEN
+
+SELECT * FROM STUDENT WHERE MARKS BETWEEN 70 AND 90;
+select * from emp WHERE SAL BETWEEN 2000 AND 5000
+
+
+SELECT * FROM STUDENT WHERE MARKS NOT BETWEEN 70 AND 90;
+select * from emp WHERE SAL NOT BETWEEN 2000 AND 5000
+
+SELECT * FROM STUDENT WHERE MARKS >= 70 AND <=90;
+select * from emp WHERE SAL >= 2000 AND SAL<=5000
+
+SELECT * FROM STUDENT WHERE MARKS = 70 OR MARKS=80 OR MARKS=90;
+select * from emp WHERE SAL=2000 OR SAL=3000 OR SAL=5000
+
+SELECT * FROM STUDENT WHERE MARKS IN (70,80,90);
+select * from emp WHERE SAL IN (2000,3000,5000)
+
+SELECT * FROM STUDENT WHERE MARKS NOT IN (70,80,90);
+select * from emp WHERE SAL NOT IN (2000,3000,5000)
+
+
+PATTERN MATCHING OPERATORS(wild card characters %-many characters and _single character)
+=========================================================================================
+
+select * from emp WHERE ENAME LIKE 'S%'(Name Start letter Willbe "S" but after that any letter accepted)
+Ex-SCOTT,SMITH
+
+select * from emp WHERE ENAME LIKE '%D'(NAme start letter willbe anything but end letted should be 'D')
+EX-FORD,WARD
+
+
+select * from emp WHERE ENAME LIKE 'S%H'(Name start letter Should be 'S' and It must be ended with 'H')
+Ex-SMITH
+
+
+select * from emp WHERE ENAME LIKE '%S%'(Name where ever 'S' character is present it will print those)
+EX-JONES,SCOTT,SMITH,ADAMS,JAMES
+
+select * from emp WHERE ENAME NOT LIKE 'A%'(Name start letter having 'A' as character ignored or skipped rest all names displayed)
+EX-JONES,SCOTT,SMITH,WARD,JAMES etc and(ALLEN,ALEX SKIPPED)
+
+select * from emp WHERE ENAME  LIKE '%E_'(NAME having 'E' as a character at any position are displayed)
+EX-JONES,ALLEN,TURNER,JAMES,MILLER
+
+ALTER
+======
+Adding a new column
+Dropping the existing column
+modifying the existing column(Increase/Decrease size of  the Column and its datatype of the column)
+renaming a column
+
+//ADDING NEW COLUMN
+ALTER TABLE STUDENT ADD(grade varchar(2))
+
+//DROPPING A COLUMN FROM TABLE
+ALTER TABLE STUDENT DROP COLUMN grade
+
+//Modifying The existing Column
+We can increase/decrease the size of column
+we can decrease the size of column only when existing column values fits into new size
+column should be empty to change the datatype
+
+Renaming a column
+ALTER table student rename column SNAME to STUNAME
+
+ALTER TABLE STUDENT ADD(GRADE VARCHAR(2));
+ALTER TABLE STUDENT DROP COLUMN GRADE;
+ALTER TABLE STUDENT MODIFY COLUMN SNAME VARCHAR(20)
+
+DROP
+--------
+DROP TABLE TABLENAME
+ DROP TABLE STUDENT
+
+DROP TABLE 
+
+DELETE FROM STUDENT
+
+STRING FUNCTIONS
+=================
+UPPER():CONVERT INTO UPPER CASE LETTERS
+Ex-SELECT UPPER(ENAME) from emp
+KING,BLAKE,CLARKE etc
+
+LOWER():CONVERT INTO LOWER CASE LETTERS
+SELECT LOWER(ENAME) from emp
+king,blake,clarke etc
+
+length():return length of string
+SELECT * FROM emp WHERE LENGTH(ENAME)=5
+EX:BLAKE,CLARK,JONES,ADAMS,ALLEN name having 5 character
+ in length
+
+TRIM
+=====
+Removed the specified characters from both the sides
+Select TRIM('  ORACLE  ') FROM DUAL
+
+INSTR
+======
+Returns position of character within a string
+SELECT INSTR('CLARKE','E') from emp
+
+GROUP BY
+==========
+GROUP BY RETURNS ONE RECORD FOR EACH GROUP
+GROUP BY ALSO TYPICALLY involves aggregate COUNT,MAX,SUM,AVG etc
+GROUP BY can group by one or more columns.
+GROUP BY clause groups records into summary rows
+
+SELECT DEPARTMENT_ID,SUM(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID;
+
+SELECT DEPARTMENT_ID,AVG(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID;
+
+SELECT DEPARTMENT_ID,MAX(SALARY),MIN(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID;
+
+SELECT JOB_ID,COUNT(*) FROM EMPLOYEES GROUP BY JOB_ID;
+GROUP BY HAVING
+=================
+SELECT JOB_ID,COUNT(*) FROM EMPLOYEES GROUP BY JOB_ID HAVING COUNT(*)>10;
+
+WHERE GROUP BY HAVING
+======================
+SELECT DEPARTMENT_ID,SUM(SALARY) FROM EMPLOYEES WHERE DEPARTMENT_ID<>50 GROUP BY DEPARTMENT_ID HAVING SUM(SALARY)>1000;
+
+SELECT * FROM EMPLOYEES ORDER BY DEPARTMENT_ID DESC;
+
+SELECT DEPARTMENT_ID,SUM(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID HAVING SUM(SALARY)>2000 ORDER BY SUM(SALARY);
+
+
+SELECT DEPARTMENT_ID,SUM(SALARY) FROM EMPLOYEES WHERE DEPARTMENT_ID<>100 GROUP BY DEPARTMENT_ID HAVING SUM(SALARY)>2000 ORDER BY SUM(SALARY)DESC;
+
+WHERE>GROUP BY>HAVING>ORDER BY
+SELECT Column-names
+FROM table-name
+WHERE CONDITIONS
+GROUP BY COLUMN-NAMES
+HAVING CONDITION
+ORDER BY COLUMN-NAMES
+
+UNION ALL
+==========
+SELECT * FROM A;
+SELECT * FROM B;
+
+SELECT NUM FROM A UNION ALL SELECT NUM FROM B;
+
+INTEGRITY CONSTRAINTS
+======================
+SQL CONSTRAINTS are used to specify rules for data in a table
+Constraints can be specified when the table is created with
+create table statement or,after the table is created with alter table statement
+
+NOT NULL-Ensures that a column cannot have a null value
+UNIQUE-Ensures that all values in a column are different
+PRIMARY KEY-A Combination of NOT NULL and UNIQUE
+FOREIGN KEY-Uniquely identifies a row/record in another table
+CHECK-Ensures that all values in a column satifies a specific condition
+DEFAULT-Sets a default value for a column when no value is specified
+
+create table student(sno int(3) NOT NULL,sname varchar(10),marks int(3));
+create table student(sno int(3) Unique,sname varchar(10),marks int(3));
+create table student(sno int(3) Primary key,sname varchar(10),marks int(3));
+create table student(sno int(3),Foreign key (sno) REFERENCES student(sno),sname varchar(10),marks int(3));
+create table student(sno int(3) ,sname varchar(10),marks int(5)check(marks between 50 and 100));
+
+AUTO_INCREMENT
+==============
+create table student(sno INT(5)primary key AUTO_INCREMENT ,sname varchar(15),marks int(5));
+insert into student(sname,marks)values('X',60);
+insert into student(sname,marks)values('Y',70);
+insert into student(sname,marks)values('Z',80);
+
+
+JOINS(VERY IMPORTANT)
+==============
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

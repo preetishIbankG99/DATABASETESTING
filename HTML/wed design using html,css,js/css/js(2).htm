@@ -1,0 +1,1574 @@
+
+<html>
+<head>
+<title>BPUT: University Management System - User Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css" style="display:none">/* CSS Document */
+.verdana12 {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #ffffff; 
+} 
+.verdana11black {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+} 
+.verdana16 {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 16px; 
+color : #000000; 
+font-weight : bold; 
+} 
+.red11u {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #990000; 
+} 
+.verdana10black {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 10px; 
+color : #333333; 
+} 
+.times16 {
+font-family : "Times New Roman", Times, serif; 
+font-size : 20px; 
+color : #000000; 
+font-weight : bold; 
+} 
+.table2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	background-color: #FFFFFF;
+	border: 1px solid #0066CC;
+	background-image: url(http://ums.bput.ac.in/bput_ums/styles/../images/arrowgreen.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+a.linkblack11:link {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+text-decoration : none; 
+} 
+.icardText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.icardText2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+}
+
+a.linkblack11:visited {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+text-decoration : none; 
+} 
+a.linkblack11:active {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+text-decoration : none; 
+} 
+a.linkblack11:hover {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #cc0000; 
+text-decoration : underline; 
+} 
+.mytextbox {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+} 
+.verdana12black {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #000000; 
+} 
+.mybutton {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+background-color : #c0c0c0; 
+border-top-width : 2px; 
+border-right-width : 2px; 
+border-bottom-width : 2px; 
+border-left-width : 2px; 
+border-top-style : solid; 
+border-right-style : solid; 
+border-bottom-style : solid; 
+border-left-style : solid; 
+border-top-color : #f4f4f4; 
+border-right-color : #808080; 
+border-bottom-color : #808080; 
+border-left-color : #f4f4f4; 
+cursor : pointer; 
+font-weight : bold; 
+} 
+a.linkred11u:link {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #990000; 
+text-decoration : underline; 
+} 
+a.linkred11u:visited {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #990000; 
+text-decoration : underline; 
+} 
+a.linkred11u:active {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #990000; 
+text-decoration : underline; 
+} 
+a.linkred11u:hover {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #cc0000; 
+text-decoration : none; 
+} 
+.verdana12blackCopy {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #000000; 
+} 
+.verdana11blackCopy {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+} 
+a.linkwhite11u:link {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #e4e4e4; 
+text-decoration : none; 
+} 
+a.linkwhite11u:visited {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #e4e4e4; 
+text-decoration : none; 
+} 
+a.linkwhite11u:active {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #e4e4e4; 
+text-decoration : none; 
+} 
+a.linkwhite11u:hover {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #ffffff; 
+text-decoration : underline; 
+} 
+a.linkwhite12u:link {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #cccccc; 
+text-decoration : none; 
+} 
+a.linkwhite12u:visited {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #cccccc; 
+text-decoration : none; 
+} 
+a.linkwhite12u:active {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #cccccc; 
+text-decoration : none; 
+} 
+a.linkwhite12u:hover {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #ffffff; 
+text-decoration : underline; 
+} 
+.verdana12Copy {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #ffffff; 
+} 
+.verdana11red {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #cc0000; 
+} 
+.verdana11err {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+} 
+.headbkg {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #333333; 
+/*background-attachment : fixed; */
+background-image : url(http://ums.bput.ac.in/bput_ums/styles/images/inner2_03.gif); 
+background-repeat : no-repeat; 
+background-position : right; 
+font-weight : bold; 
+} 
+.mybuttonred {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	color : #cc0000;
+	background-color : #c0c0c0;
+	border-top-width : 2px;
+	border-right-width : 2px;
+	border-bottom-width : 2px;
+	border-left-width : 2px;
+	border-top-style : solid;
+	border-right-style : solid;
+	border-bottom-style : solid;
+	border-left-style : solid;
+	border-top-color : #f4f4f4;
+	border-right-color : #808080;
+	border-bottom-color : #808080;
+	border-left-color : #f4f4f4;
+	cursor : pointer;
+	font-weight : bold;
+	height: 20px;
+	width: 20px;
+
+} 
+.verdana11gray {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #333333; 
+} 
+.buttonSmall {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-color: #CCCCCC;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #F4F4F4;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #F4F4F4;
+}
+
+.mylistboxsmall {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 10px; 
+color : #000000; 
+} 
+.mytextboxcenter {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+text-align : center; 
+} 
+a.linkbright12u:link {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #ffffff; 
+text-decoration : underline; 
+} 
+a.linkbright12u:visited {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #ffffff; 
+text-decoration : underline; 
+} 
+a.linkbright12u:active {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #ffffff; 
+text-decoration : underline; 
+} 
+a.linkbright12u:hover {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #ffff99; 
+text-decoration : none; 
+} 
+a.linkblack12u:link {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #000000; 
+text-decoration : underline; 
+} 
+a.linkblack12u:visited {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #000000; 
+text-decoration : underline; 
+} 
+a.linkblack12u:active {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #000000; 
+text-decoration : underline; 
+} 
+a.linkblack12u:hover {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #333333; 
+text-decoration : none; 
+} 
+.mybuttonfixedwidth {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+background-color : #c0c0c0; 
+border-top-width : 2px; 
+border-right-width : 2px; 
+border-bottom-width : 2px; 
+border-left-width : 2px; 
+border-top-style : solid; 
+border-right-style : solid; 
+border-bottom-style : solid; 
+border-left-style : solid; 
+border-top-color : #f4f4f4; 
+border-right-color : #808080; 
+border-bottom-color : #808080; 
+border-left-color : #f4f4f4; 
+cursor : pointer; 
+font-weight : bold; 
+width : 160px; 
+height : auto; 
+} 
+.dialogHeader {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+	color : #ffffff;
+	background-color : #0066CC;
+	/*background-attachment: fixed;*/
+	background-image: url(http://ums.bput.ac.in/bput_ums/styles/../images/topbar.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+
+} 
+.dialogBase {
+background-color : #f4f4f4; 
+border : 1px solid #0066cc; 
+} 
+.dialogBaseText {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#003366;
+	background-color : #f4f4f4; 
+	border : 1px solid #0066cc; 
+} 
+.FormText {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#003366;
+	background-color : #f4f4f4; 
+} 
+.dialogBaseShadow {
+border-top : 2px none #CCCCCC; 
+border-right : 2px solid #CCCCCC; 
+border-bottom : 2px solid #CCCCCC; 
+border-left : 2px none #CCCCCC; 
+} 
+.bodyText {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #333333; 
+} 
+.bodyTextJustified {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #333333; 
+text-align : justify; 
+} 
+.focusOn {
+background-color : #e4e4e4; 
+} 
+.focusOff {
+background-color : #f4f4f4; 
+
+} 
+.tableText {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #333333; 
+background-color : #f4f4f4; 
+} 
+.cellBorder {
+border : 1px solid #e4e4e4; 
+} 
+.tableHead {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+background-color : #FFCC00; 
+font-weight : bold; 
+text-align : center; 
+} 
+.tableHead4 {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #FFFFFF; 
+background-color : #0066CC; 
+font-weight : bold; 
+text-align : center; 
+} 
+.bodyText12 {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #000000; 
+} 
+.tableHead2 {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #333333; 
+background-color : #cccc99; 
+font-weight : bold; 
+} 
+a:link {
+color : #000000; 
+text-decoration : underline; 
+} 
+a:visited {
+color : #000000; 
+text-decoration : underline; 
+} 
+a:active {
+color : #000000; 
+text-decoration : underline; 
+} 
+a:hover {
+color : #000000; 
+text-decoration : none; 
+} 
+.tableHeadTitle {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 16px; 
+color : #000000; 
+font-weight : bold; 
+text-align : center; 
+background-color : #e4e4e4; 
+} 
+.bodyTextSmall {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 9px; 
+color : #000000; 
+font-weight : normal; 
+} 
+a.white:link {
+color : #ffffff; 
+text-decoration : underline; 
+} 
+a.white:visited {
+color : #ffffff; 
+text-decoration : underline; 
+} 
+a.white:active {
+color : #ffffff; 
+text-decoration : underline; 
+} 
+a.white:hover {
+color : #ffffff; 
+text-decoration : none; 
+} 
+.tableTextJustify {
+text-align : justify; 
+} 
+.topHeader2 {
+font-family : "Times New Roman", Times, serif; 
+font-size : 24px; 
+font-weight : bold; 
+color : #666666; 
+} 
+.mainMenuBkg {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+background-image : url(http://ums.bput.ac.in/bput_ums/styles/../images/mnubkg.gif); 
+background-repeat : repeat-x; 
+background-position : top; 
+} 
+a.mainMenu:link {
+color : #000000; 
+text-decoration : none; 
+} 
+a.mainMenu:visited {
+color : #000000; 
+text-decoration : none; 
+} 
+a.mainMenu:active {
+color : #000000; 
+text-decoration : none; 
+} 
+a.mainMenu:hover {
+color : #000000; 
+text-decoration : underline; 
+} 
+.pathIndicatorBkg {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 9px; 
+color : #000000; 
+background-color : #cccccc; 
+} 
+.pageTitleActive {
+font-family : Arial, Helvetica, sans-serif; 
+font-size : 14px; 
+font-weight : bold; 
+color : #ff6600; 
+} 
+.pageTitleInActive {
+font-family : Arial, Helvetica, sans-serif; 
+font-size : 14px; 
+font-weight : bold; 
+color : #999999; 
+} 
+.errMsg {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 10px; 
+} 
+.dialogBkg {
+background-color : #21199e; 
+} 
+.dialogBkgLeft {
+/*background-attachment : fixed; */
+background-image : url(http://ums.bput.ac.in/bput_ums/styles/../images/dialog_left.gif); 
+background-repeat : no-repeat; 
+background-position : left top; 
+} 
+.dialogBkgRight {
+/*background-attachment : fixed; */
+background-image : url(http://ums.bput.ac.in/bput_ums/styles/../images/dialog_right.gif); 
+background-repeat : no-repeat; 
+background-position : right top; 
+} 
+.formBkg {
+background-color : #f4f4f4; 
+} 
+.formHeadingBkg {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+background-color : #e4e4e4; 
+font-weight : bold; 
+} 
+.formSubHeadingBkg {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 10px; 
+color : #003333; 
+background-color : #eeeeee; 
+font-weight : bold; 
+} 
+.formSubHeadingBkgReport {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 10px; 
+color : #003333;
+background:#FFFFCC;
+font-weight : bold; 
+} 
+.formText {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+color : #000000; 
+} 
+.formBkgDark {
+background-color : #cccccc; 
+} 
+.inputBox {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+} 
+.cmdButton {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	color : #000000;
+	background-color : #e4e4e4;
+	border-top-width : thin;
+	border-right-width : thin;
+	border-bottom-width : thin;
+	border-left-width : thin;
+	border-top-style : solid;
+	border-right-style : solid;
+	border-bottom-style : solid;
+	border-left-style : solid;
+	border-top-color : #ffffff;
+	border-right-color : #999999;
+	border-bottom-color : #999999;
+	border-left-color : #ffffff;
+	/*background-attachment: fixed;*/
+	background-image: url(http://ums.bput.ac.in/bput_ums/styles/../images/btn.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+
+} 
+.dialogBkgMid {
+/*background-attachment : fixed; */
+background-image : url(http://ums.bput.ac.in/bput_ums/styles/../images/dialog_bkg.gif); 
+background-repeat : repeat-x; 
+background-position : left top; 
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+font-weight : bold; 
+color : #ffffff; 
+} 
+.bodyBkg {
+background-color : #ffffff; 
+} 
+.bodyBkgBak {
+background-color : #ffdfbb; 
+background-image : url(http://ums.bput.ac.in/bput_ums/styles/../images/bkgtile1.gif); 
+} 
+.selbkg {
+background-color : #FFFFCC; 
+} 
+.dselbkg {
+background-color : #FFFFFF; 
+} 
+.selbkg2 {
+background-color : #FF9966; 
+} 
+.dselbkg2 {
+background-color : #FFFFFF; 
+} 
+.listType1 {
+list-style-type : decimal; 
+} 
+.footerText {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 9px; 
+color : #333333; 
+} 
+.bodyTextSmallGray {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 9px; 
+color : #666666; 
+font-weight : normal; 
+} 
+.bodyTextSmallRed {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 9px; 
+color : #CC0000; 
+font-weight : normal; 
+} 
+.dialogTitleOnly {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 12px; 
+font-weight : bold; 
+color : #ffffff; 
+} 
+.mnuLowLine {
+/*background-attachment : fixed; */
+background-image : url(http://ums.bput.ac.in/bput_ums/styles/../images/mnulowline2.gif); 
+background-repeat : repeat-x; 
+background-position : left top; 
+background-color : #cccccc; 
+} 
+.mainBannerLeft {
+/*background-attachment : fixed; */
+background-image : url(http://ums.bput.ac.in/bput_ums/styles/../images/main_banner_1.gif); 
+background-repeat : repeat-x; 
+background-position : right top; 
+} 
+.bodyTextWhite {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 10px; 
+color : #ffffff; 
+} 
+a.blackNoUL:link {
+color : #000000; 
+text-decoration : none; 
+} 
+a.blackNoUL:visited {
+color : #000000; 
+text-decoration : none; 
+} 
+a.blackNoUL:active {
+color : #000000; 
+text-decoration : none; 
+} 
+a.blackNoUL:hover {
+color : #000000; 
+text-decoration : underline; 
+} 
+a.whiteNoUL:link {
+color : #ffffff; 
+text-decoration : none; 
+} 
+a.whiteNoUL:visited {
+color : #ffffff; 
+text-decoration : none; 
+} 
+a.whiteNoUL:active {
+color : #ffffff; 
+text-decoration : none; 
+} 
+a.whiteNoUL:hover {
+color : #ffffff; 
+text-decoration : underline; 
+} 
+.inputBoxBlack {
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #ffffff; 
+background-color : #000000; 
+border : 1px solid #cccccc; 
+} 
+.formTextWithBorder {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #000000;
+	border: 1px solid #E4E4E4;
+
+}
+.formHeadingBkg2 {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	color : #FFFFFF;
+	background-color : #999999;
+	font-weight : bold;
+
+}
+.mybuttonblack {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	color : #000000;
+	background-color : #c0c0c0;
+	border-top-width : 2px;
+	border-right-width : 2px;
+	border-bottom-width : 2px;
+	border-left-width : 2px;
+	border-top-style : solid;
+	border-right-style : solid;
+	border-bottom-style : solid;
+	border-left-style : solid;
+	border-top-color : #f4f4f4;
+	border-right-color : #808080;
+	border-bottom-color : #808080;
+	border-left-color : #f4f4f4;
+	cursor : pointer;
+	font-weight : bold;
+	height: 20px;
+	width: 20px;
+
+}
+.mybuttongreen {
+
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #006600; 
+background-color : #c0c0c0; 
+border-top-width : 2px; 
+border-right-width : 2px; 
+border-bottom-width : 2px; 
+border-left-width : 2px; 
+border-top-style : solid; 
+border-right-style : solid; 
+border-bottom-style : solid; 
+border-left-style : solid; 
+border-top-color : #f4f4f4; 
+border-right-color : #808080; 
+border-bottom-color : #808080; 
+border-left-color : #f4f4f4; 
+cursor : pointer; 
+font-weight : bold;
+}
+.formTextSmallGray {
+
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 9px; 
+color : #666666; 
+font-weight : normal;
+}
+.formHeadingBkg3 {
+
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #000000; 
+background-color : #e4e4e4;
+}
+.mycheckbox {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	color : #000000;
+	height: 18px;
+	width: 18px;
+
+}
+.tableHead3 {
+
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #0033CC; 
+font-weight : bold;
+}
+.formHeading4 {
+
+
+font-family : Verdana, Arial, Helvetica, sans-serif; 
+font-size : 11px; 
+color : #0033CC; 
+font-weight : bold;
+}
+.reporthead1 {
+
+font-family : "Times New Roman", Times, serif; 
+font-size : 30px; 
+color : #000000; 
+font-weight : bold;
+}
+.reporthead2 {
+
+
+font-family : "Times New Roman", Times, serif; 
+font-size : 24px; 
+color : #000000; 
+font-weight : bold;
+}
+.formTextWithBorderDark {
+
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #000000;
+	border: 1px solid #999999;
+}
+.mnubkg1 {
+/*	background-attachment: fixed;*/
+	background-image: url(http://ums.bput.ac.in/bput_ums/styles/../images/mnubar.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.mnubkg1right {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+/*	background-attachment: fixed;*/
+	background-image: url(http://ums.bput.ac.in/bput_ums/styles/../images/mnubarlastpart.jpg);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+.toprightbanner {
+/*	background-attachment: fixed;*/
+	background-image: url(http://ums.bput.ac.in/bput_ums/styles/../images/topcorner.jpg);
+	background-repeat: no-repeat;
+	background-position: right top;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+
+}
+.inputtxt1{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	border:1px solid #333333;
+}
+.myheader{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+    font-weight : bold;
+}
+
+.myheader1{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	
+}
+.mytextboxnoborder {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	color : #666666;
+	background-color: #F4F4F4;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	text-align:center;
+}
+
+</style>
+
+<script language="JavaScript"  style="display:none">/*OM*/
+
+/*Change row colour*/
+function sel(frm,cbox)
+	{
+	var ele=cbox;
+	while (ele.tagName!="TR")
+		{ele=ele.parentNode;}
+	if(cbox.checked)
+		{ele.className="selbkg"}
+	else
+		{ele.className="dselbkg"}
+	}
+
+/*Select all checkboxes*/
+function selectAll(frm, chkall, chkname)
+	{
+	var cboxes = eval("document." + frm.name + "." + chkname);
+	if(cboxes != null)
+		{
+		if(cboxes.length>0)
+			{
+			for(var m=0; m < cboxes.length; m++)
+				{
+				cboxes[m].checked = chkall.checked;
+				sel(frm, cboxes[m]);
+				}
+			}
+		else
+			{
+			cboxes.checked = chkall.checked;
+			sel(frm, cboxes);
+			}
+		}
+	}
+
+/*Check if single checkbox is selected*/
+function isSingleSelected(frm, chkname, recs)
+	{
+	var cbox;
+	var cnt = 0;
+	if(recs == 0)
+		{
+		alert("no record selected");
+		return false;
+		}
+
+	for(var m=1; m <= recs; m++)
+		{
+		cbox = eval("document." + frm.name + "." + chkname + "_" + m);
+		if(cbox != null)
+			{
+			if(cbox.checked == true)
+				{cnt++;}
+			}
+		}
+
+	if(cnt == 1)
+		{return true;}
+	else
+		{
+		alert("Please select only a single record to proceed...");
+		return false;
+		}
+	}
+
+/*Check if any (1+) checkbox is selected*/
+function isAnySelected(frm, chkname, recs)
+	{
+	var cbox;
+	var cnt = 0;
+	if(recs == 0)
+		{
+		alert("no record selected");
+		return false;
+		}
+
+	for(var m=1; m <= recs; m++)
+		{
+		cbox = eval("document." + frm.name + "." + chkname + "_" + m);
+		if(cbox != null)
+			{
+			if(cbox.checked == true)
+				{cnt++;}
+			}
+		}
+
+	if(cnt >= 1)
+		{return true;}
+	else
+		{
+		alert("Please select one or more record to proceed...");
+		return false;
+		}
+	}
+
+/*Get selected checkbox value */
+function getSelectedCheckboxValue(frm, chkname, recs, defaultval)
+{
+	var cbox, idlist;
+	var cnt = 0;
+	var idlist = "";
+	if(recs == 0)
+	{
+		//alert("no record selected");
+		idlist = defaultval;
+		return idlist;
+	}
+
+	for(var m=1; m <= recs; m++)
+	{
+		cbox = eval("document." + frm.name + "." + chkname + "_" + m);
+		if(cbox != null)
+		{
+			if(cbox.checked == true)
+			{
+				cnt++;
+				if(idlist != "")
+				{
+					idlist = idlist + ",";
+				}
+				idlist = idlist + cbox.value;
+			}
+		}
+	}
+
+	if(idlist == "")
+	{
+		idlist = defaultval;
+	}
+	
+	return idlist;
+}
+
+/*Open Popup Window*/
+var popUpWin=0;
+function popUpWindow(URLStr,mywidth,myheight,myleft,mytop,myscroll)
+	{
+	if(popUpWin)
+		{
+		if(!popUpWin.closed) 
+			{popUpWin.close();}
+		}
+	popUpWin = open(URLStr, 'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=' + myscroll + ',resizable=no,copyhistory=yes,width='+mywidth+',height='+myheight+',left='+myleft+', top='+mytop+',screenX='+myleft+',screenY='+mytop+'');
+	}
+
+/*Open Popup Window 2*/
+var popUpWin2=0;
+function popUpWindow2(URLStr,mywidth,myheight,myleft,mytop,myscroll,myresize,mymenu,mystatus)
+	{
+	if(popUpWin2)
+		{
+		if(!popUpWin2.closed) 
+			{popUpWin2.close();}
+		}
+	popUpWin2 = open(URLStr, 'popWin2', 'toolbar=no,location=no,directories=no,status=' + mystatus + ',menubar=' + mymenu + ',scrollbars=' + myscroll + ',resizable=' + myresize + ',copyhistory=yes,width='+mywidth+',height='+myheight+',left='+myleft+', top='+mytop+',screenX='+myleft+',screenY='+mytop+'');
+	}
+
+
+/*Check if single checkbox is selected*/
+/*function isSingleSelected_bak(frm, chkname, recs)
+	{
+	if(recs == 0)
+	  {
+	  alert("no record");
+	  return false;
+	  }
+	else
+	  {
+	  alert(eval("document." + frm.name + "." + chkname + "_" + 1));
+	  alert("record found");
+	  return false;
+	  }
+	
+	var cboxes = eval("document." + frm.name + "." + chkname + "_" + 1);
+	var cnt = 0;
+	if(cboxes != null)
+		{
+		if(cboxes.length>0)
+			{
+			for(var m=0; m < cboxes.length; m++)
+				{
+				if(cboxes[m].checked == true)
+					{cnt++;}
+				}
+			}
+		else
+			{
+			if(cboxes.checked == true)
+				{cnt++;}
+			}
+		}
+
+	if(cnt == 1)
+		{return true;}
+	else
+		{
+		alert("Please select only a single row to proceed...");
+		return false;
+		}
+	}
+*/
+
+/*
+function getoptions(frm,srcList,targetList,location)
+      {
+		var objSrcList = eval(frm.name + '.' + srcList);
+		var objTargetList = eval(frm.name + '.' + targetList);
+		
+		//var frm1 = document.frm;
+		var prog = objSrcList.options[objSrcList.selectedIndex].value;
+		params = "pcode=" + prog;
+
+
+	    var XMLHttpRequestObject = false; 
+   		
+		var msxmlhttp = new Array( 
+			'Msxml2.XMLHTTP.5.0', 
+			'Msxml2.XMLHTTP.4.0', 
+			'Msxml2.XMLHTTP.3.0', 
+			'Msxml2.XMLHTTP', 
+			'Microsoft.XMLHTTP'); 
+		
+		for (i=0;i<msxmlhttp.length;i++) 
+		{ 
+			try 
+			{ 
+				XMLHttpRequestObject = new ActiveXObject(msxmlhttp[i]); 
+			} 
+			catch (e) 
+			{ 
+				XMLHttpRequestObject = null; 
+			} 
+		} 
+		if(!XMLHttpRequestObject && typeof XMLHttpRequest!= "undefined") 
+		{ 
+			XMLHttpRequestObject = new XMLHttpRequest(); 
+		} 
+		if (!XMLHttpRequestObject) 
+		{ 
+			XMLHttpRequestObject = false; 
+		} 
+		
+        if(XMLHttpRequestObject) {
+			
+		var randomnumber;
+		randomnumber = Math.floor(Math.random()*11) + '' + Math.floor(Math.random()*11) + '' + Math.floor(Math.random()*11) + '' + Math.floor(Math.random()*11);
+		XMLHttpRequestObject.open("GET",location+"?" + params + "&a="+randomnumber, true); 
+		
+        XMLHttpRequestObject.onreadystatechange = function() 
+          { 
+		  	
+            if (XMLHttpRequestObject.readyState == 4 && 
+              XMLHttpRequestObject.status == 200) 
+			{ 
+			var tmpdiv;
+	      
+					var xmldoc = XMLHttpRequestObject.responseXML;
+					
+			
+					var data_nodes = xmldoc.getElementsByTagName("data"); 
+					var n_data = data_nodes.length;
+					var combined_data;
+					var sdesc, sequip, fulldesc;
+					//alert(n_data);
+					objTargetList.options.length = 1;
+					
+					for (i = 0; i < n_data; i++) {
+						combined_data = "";
+						var node_data_code = data_nodes[i].getElementsByTagName("data_code");
+						var node_data_title = data_nodes[i].getElementsByTagName("data_title");
+						
+						tmp_data_code = unescape(node_data_code[0].firstChild.nodeValue.replace(/\+/g,' '));
+						tmp_data_title = unescape(node_data_title[0].firstChild.nodeValue.replace(/\+/g,' '));
+						//alert(brcode+brname);
+						objTargetList.options.length += 1; 
+						objTargetList.options[i+1].value = tmp_data_code;
+						objTargetList.options[i+1].text = tmp_data_title;
+						
+						}
+		
+            } 
+          } 
+
+          XMLHttpRequestObject.send(null); 
+        }
+      }
+*/
+
+
+
+
+
+
+//--- URL Encode for Javascript (used mostly in popup windows)
+function urlencode(s) {
+  s = encodeURIComponent(s);
+  return s.replace(/~/g,'%7E').replace(/%20/g,'+');
+ }
+
+
+
+//--- Populate a Dropdownbox (select element) using AJAX
+function getoptions2(frm, targetList, location, params, aCallbackFunction)
+      {
+		//var objSrcList = eval(frm.name + '.' + srcList);
+		var objTargetList = eval(frm.name + '.' + targetList);
+		
+		//var frm1 = document.frm;
+		//var prog = objSrcList.options[objSrcList.selectedIndex].value;
+		//params = "pcode=" + prog;
+
+
+	    var XMLHttpRequestObject = false; 
+   		
+		var msxmlhttp = new Array( 
+			'Msxml2.XMLHTTP.5.0', 
+			'Msxml2.XMLHTTP.4.0', 
+			'Msxml2.XMLHTTP.3.0', 
+			'Msxml2.XMLHTTP', 
+			'Microsoft.XMLHTTP'); 
+		
+		for (i=0;i<msxmlhttp.length;i++) 
+		{ 
+			try 
+			{ 
+				XMLHttpRequestObject = new ActiveXObject(msxmlhttp[i]); 
+			} 
+			catch (e) 
+			{ 
+				XMLHttpRequestObject = null; 
+			} 
+		} 
+		if(!XMLHttpRequestObject && typeof XMLHttpRequest!= "undefined") 
+		{ 
+			XMLHttpRequestObject = new XMLHttpRequest(); 
+		} 
+		if (!XMLHttpRequestObject) 
+		{ 
+			XMLHttpRequestObject = false; 
+		} 
+		
+        if(XMLHttpRequestObject) {
+			
+		var randomnumber;
+		randomnumber = Math.floor(Math.random()*11) + '' + Math.floor(Math.random()*11) + '' + Math.floor(Math.random()*11) + '' + Math.floor(Math.random()*11);
+		XMLHttpRequestObject.open("GET",location+"?" + params + "&a="+randomnumber, true); 
+		
+        XMLHttpRequestObject.onreadystatechange = function() 
+          { 
+		  	
+            if (XMLHttpRequestObject.readyState == 4 && 
+              XMLHttpRequestObject.status == 200) 
+			{ 
+			var tmpdiv;
+	      
+					var xmldoc = XMLHttpRequestObject.responseXML;
+					
+			
+					var data_nodes = xmldoc.getElementsByTagName("data"); 
+					var n_data = data_nodes.length;
+					var combined_data;
+					var sdesc, sequip, fulldesc;
+					//alert(n_data);
+					objTargetList.options.length = 1;
+					
+					for (i = 0; i < n_data; i++) {
+						combined_data = "";
+						var node_data_code = data_nodes[i].getElementsByTagName("data_code");
+						var node_data_title = data_nodes[i].getElementsByTagName("data_title");
+						
+						tmp_data_code = unescape(node_data_code[0].firstChild.nodeValue.replace(/\+/g,' '));
+						tmp_data_title = unescape(node_data_title[0].firstChild.nodeValue.replace(/\+/g,' '));
+						//alert(brcode+brname);
+						
+						if(n_data == 1 && tmp_data_title == "NA")
+						{
+							break;
+						}
+						
+						objTargetList.options.length += 1; 
+						objTargetList.options[i+1].value = tmp_data_code;
+						objTargetList.options[i+1].text = tmp_data_title;
+						
+						}
+					
+					if(!(aCallbackFunction === undefined))
+					{
+						aCallbackFunction();
+					}
+            } 
+          } 
+
+          XMLHttpRequestObject.send(null); 
+        }
+      }
+
+//--- Get a new XML HTTP Request Object Old
+function getXMLHttpRequestObjectOld()
+{
+	var XMLHttpRequestObject = false; 
+	
+	var msxmlhttp = new Array( 
+		'Msxml2.XMLHTTP.5.0', 
+		'Msxml2.XMLHTTP.4.0', 
+		'Msxml2.XMLHTTP.3.0', 
+		'Msxml2.XMLHTTP', 
+		'Microsoft.XMLHTTP'); 
+	
+	for (i=0;i<msxmlhttp.length;i++) 
+	{ 
+		try 
+		{ 
+			XMLHttpRequestObject = new ActiveXObject(msxmlhttp[i]); 
+		} 
+		catch (e) 
+		{ 
+			XMLHttpRequestObject = null; 
+		} 
+	} 
+	if(!XMLHttpRequestObject && typeof XMLHttpRequest!= "undefined") 
+	{ 
+		XMLHttpRequestObject = new XMLHttpRequest(); 
+	} 
+	if (!XMLHttpRequestObject) 
+	{ 
+		XMLHttpRequestObject = false; 
+	} 
+	
+	
+	
+	xmlhttp=null;
+	if (window.XMLHttpRequest)
+	  {// code for Firefox, Mozilla, IE7, etc.
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else if (window.ActiveXObject)
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	if (xmlhttp!=null)
+	  {
+	  xmlhttp.onreadystatechange=state_Change;
+	  xmlhttp.open("GET",url,true);
+	  xmlhttp.send(null);
+	  }
+	else
+	  {
+	  alert("Your browser does not support XMLHTTP.");
+	  }
+
+	
+	
+	
+	return(XMLHttpRequestObject);
+}
+
+//--- Get a new XML HTTP Request Object
+function getXMLHttpRequestObject()
+{
+	var XMLHttpRequestObject = null;
+	if (window.XMLHttpRequest)
+	{
+		// code for Firefox, Mozilla, IE7, etc.
+		XMLHttpRequestObject = new XMLHttpRequest();
+	}
+	else if (window.ActiveXObject)
+	{
+		// code for IE6, IE5
+		XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	return(XMLHttpRequestObject);
+}
+
+//--- Process a PHP script using AJAX and refresh contents (innerHTML) inside a Div or Label ---
+function callAJAX(objTargetDiv, location, params, aCallbackFunction)
+{
+	//var objSrcList = eval(frm.name + '.' + srcList);
+	//var objTargetList = eval(frm.name + '.' + targetList);
+	//var objTargetDiv = document.getElementById();
+	
+	//var frm1 = document.frm;
+	//var prog = objSrcList.options[objSrcList.selectedIndex].value;
+	//params = "pcode=" + prog;
+
+	var XMLHttpRequestObject = getXMLHttpRequestObject(); 
+	
+	if(XMLHttpRequestObject != null) 
+	{
+		var randomnumber;
+		randomnumber = Math.floor(Math.random()*11) + '' + Math.floor(Math.random()*11) + '' + Math.floor(Math.random()*11) + '' + Math.floor(Math.random()*11);
+		
+		objTargetDiv.innerHTML = "Loading...";
+		
+		XMLHttpRequestObject.open("GET",location+"?" + params + "&a="+randomnumber, true); 
+		
+		XMLHttpRequestObject.onreadystatechange = function() 
+		{ 
+		
+			if (XMLHttpRequestObject.readyState == 4 && 
+				XMLHttpRequestObject.status == 200) 
+			{ 
+				var text_html_output = XMLHttpRequestObject.responseText;
+				
+				if(objTargetDiv)
+				{
+					objTargetDiv.innerHTML = text_html_output;
+				}
+				if(!(aCallbackFunction === undefined))
+				{
+					aCallbackFunction(text_html_output);
+				}
+			} 
+		} 
+
+		XMLHttpRequestObject.send(null); 
+	}
+}
+
+
+//--- Show a Div at a specified position
+function showDivAtPos(divID, xPos, yPos)
+{
+	var objDiv = document.getElementById(divID);
+	if(!objDiv)
+	{
+		return false;
+	}
+	
+	objDiv.style.left = xPos + 'px';
+	objDiv.style.top = yPos + 'px';
+
+	objDiv.style.display = "block";
+}
+
+//--- Hide a Div
+function hideDiv(divID)
+{
+	var objDiv = document.getElementById(divID);
+	if(!objDiv)
+	{
+		return false;
+	}
+	
+	objDiv.style.display = "none";
+}
+
+
+/*
+============================================================
+Capturing The Mouse Position in IE4-6 & NS4-6
+(C) 2000 www.CodeLifter.com
+Free for all users, but leave in this  header
+
+Part One:
+Set up a form named "Show" with text fields named "MouseX"
+and "MouseY".  Note in the getMouseXY() function how fields
+are addressed, thus: document.FormName.FieldName.value
+
+Part Two:
+Use JavaScript ver 1.2 so older browsers ignore the script.
+The &lt;script must be *after* the &lt;form   since the form
+and fields must exist *prior* to being called in the script.
+*/
+
+
+// Detect if the browser is IE or not.
+// If it is not IE, we assume that the browser is NS.
+var IE = document.all?true:false
+
+// If NS - that is, !IE - then set up for mouse capture
+if (!IE) document.captureEvents(Event.MOUSEMOVE)
+
+// Set-up to use getMouseXY function onMouseMove
+document.onmousemove = getMouseXY;
+
+// Temporary variables to hold mouse x-y pos.s
+var mouse_x = 0
+var mouse_y = 0
+
+// Main function to retrieve mouse x-y pos.s
+function getMouseXY(e) {
+  if (IE) { // grab the x-y pos.s if browser is IE
+	//srleft = document.body.scrollLeft ? document.body.scrollLeft : document.documentElement.scrollLeft;
+	//window.status= mouse_x + "_" + event.clientX + "_" + srleft;
+    mouse_x = event.clientX + (document.body.scrollLeft ? document.body.scrollLeft : document.documentElement.scrollLeft);
+    mouse_y = event.clientY + (document.body.scrollTop ? document.body.scrollTop : document.documentElement.scrollTop);
+  } else {  // grab the x-y pos.s if browser is NS
+    mouse_x = e.pageX
+    mouse_y = e.pageY
+  }  
+  // catch possible negative values in NS4
+  if (mouse_x < 0){mouse_x = 0}
+  if (mouse_y < 0){mouse_y = 0}  
+  // show the position values in the form named Show
+  // in the text fields named MouseX and MouseY
+  //document.Show.MouseX.value = mouse_x
+  //document.Show.MouseY.value = mouse_y
+  
+  //window.status= mouse_x + "_" + mouse_y;
+  
+  return true
+}
+
+</script>
+</head>
+
+<body leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" onLoad="document.frmLogin.uname.focus();">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td height="106" align="center" class="times16">BPUT: University Management System</td>
+  </tr>
+  <tr> 
+    <td height="32" align="center" class="verdana11black">
+      &nbsp;	        </td>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="verdana11black"><form name="frmLogin" method="post" action="user_login.php" >
+        <table width="280" border="0" cellpadding="0" cellspacing="0" class="dialogBaseShadow">
+          <tr> 
+            <td><table width="100%" border="0" cellpadding="2" cellspacing="0" class="dialogBase">
+                <tr> 
+                  <td height="24" class="dialogHeader"> User Login</td>
+                </tr>
+                <tr> 
+                  <td> <table width="100%" border="0" cellpadding="2" cellspacing="0" class="formTextWithBorder" >
+                      <tr> 
+                        <td width="40%" height="35" >&nbsp;Login As:<font color="#CC0000">*</font></td>
+                        <td width="60%"><select class="mytextbox" name="utype" id="utype">
+                            <option value="">-</option>
+                            <option value="1">University User</option>
+                            <option value="2">College Administrator</option>
+                            <option value="3">Faculty</option>
+							                          </select></td>
+                      </tr>
+                      <tr> 
+                        <td height="35">&nbsp;User Id:<font color="#CC0000">*</font></td>
+                        <td> <input name="uname" type="text" class="mytextbox" id="uname2" size="20" maxlength="20"> 
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td height="35">&nbsp;Password:<font color="#CC0000">*</font></td>
+                        <td> <input name="pwd" type="password" class="mytextbox" id="pwd" size="20" maxlength="20"> 
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td height="35" align="center"><input name="logMe" type="hidden" id="logMe" value="Y"> 
+                          <!--<input name="utype" type="hidden" id="utype" value="univ_user">-->
+                        </td>
+                        <td height="35"><input name="cmdLoginside" type="submit" class="mybutton" id="cmdLoginside" value=Login ></td>
+                      </tr>
+                      <tr align="right"> 
+                        <td colspan="2" class="formHeadingBkg">
+						
+						<a href="forgot_password.php" class="">Forgot 
+                          Password?</a>
+					
+					    </td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <a href="http://www.bput.ac.in">Back to www.bput.ac.in </a> <br>
+        <br>
+        <a href="mailto:administrator@bput.ac.in">Contact Support Team</a>
+      </form></td>
+  </tr>
+</table>
+</body>
+</html>

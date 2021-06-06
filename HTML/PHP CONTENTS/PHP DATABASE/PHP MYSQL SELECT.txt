@@ -1,0 +1,81 @@
+PHP MySQL Select
+================
+The SELECT statement is used to select data from a database.
+
+Select Data From a Database Table
+The SELECT statement is used to select data from a database.
+
+Syntax
+
+SELECT column_name(s)
+FROM table_name
+To learn more about SQL, please visit our SQL tutorial.
+
+To get PHP to execute the statement above we must use the mysqli_query() function. This function is used to send a query or command to a MySQL connection.
+
+Example
+
+The following example selects all the data stored in the "Persons" table (The * character selects all the data in the table):
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+$result = mysqli_query($con,"SELECT * FROM Persons");
+
+while($row = mysqli_fetch_array($result))
+  {
+  echo $row['FirstName'] . " " . $row['LastName'];
+  echo "<br>";
+  }
+
+mysqli_close($con);
+?>
+The example above stores the data returned by the mysqli_query() function in the $result variable.
+
+Next, we use the mysqli_fetch_array() function to return the first row from the recordset as an array. Each call to mysqli_fetch_array() returns the next row in the recordset. The while loop loops through all the records in the recordset. To print the value of each row, we use the PHP $row variable ($row['FirstName'] and $row['LastName']).
+
+The output of the code above will be:
+
+Peter Griffin
+Glenn Quagmire
+
+Display the Result in an HTML Table
+The following example selects the same data as the example above, but will display the data in an HTML table:
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+$result = mysqli_query($con,"SELECT * FROM Persons");
+
+echo "<table border='1'>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+  {
+  echo "<tr>";
+  echo "<td>" . $row['FirstName'] . "</td>";
+  echo "<td>" . $row['LastName'] . "</td>";
+  echo "</tr>";
+  }
+echo "</table>";
+
+mysqli_close($con);
+?>
+The output of the code above will be:
+
+Firstname	Lastname
+Glenn	Quagmire
+Peter	Griffin

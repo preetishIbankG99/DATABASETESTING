@@ -1,0 +1,65 @@
+PHP Date() Function
+
+====================
+The PHP date() function is used to format a time and/or date.
+
+The PHP Date() Function
+The PHP date() function formats a timestamp to a more readable date and time.
+
+ A timestamp is a sequence of characters, denoting the date and/or time at which a certain event occurred.
+
+Syntax
+
+date(format,timestamp)
+
+Parameter	Description
+format	Required. Specifies the format of the timestamp
+timestamp	Optional. Specifies a timestamp. Default is the current date and time
+
+PHP Date() - Format the Date
+The required format parameter in the date() function specifies how to format the date/time.
+
+Here are some characters that can be used:
+
+d - Represents the day of the month (01 to 31)
+m - Represents a month (01 to 12)
+Y - Represents a year (in four digits)
+A list of all the characters that can be used in the format parameter, can be found in our PHP Date reference, date() function.
+
+Other characters, like"/", ".", or "-" can also be inserted between the letters to add additional formatting:
+
+<?php
+echo date("Y/m/d") . "<br>";
+echo date("Y.m.d") . "<br>";
+echo date("Y-m-d");
+?>
+The output of the code above could be something like this:
+
+2009/05/11
+2009.05.11
+2009-05-11
+
+PHP Date() - Adding a Timestamp
+The optional timestamp parameter in the date() function specifies a timestamp. If you do not specify a timestamp, the current date and time will be used.
+
+The mktime() function returns the Unix timestamp for a date.
+
+The Unix timestamp contains the number of seconds between the Unix Epoch (January 1 1970 00:00:00 GMT) and the time specified.
+
+Syntax for mktime()
+
+mktime(hour,minute,second,month,day,year,is_dst)
+To go one day in the future we simply add one to the day argument of mktime():
+
+<?php
+$tomorrow = mktime(0,0,0,date("m"),date("d")+1,date("Y"));
+echo "Tomorrow is ".date("Y/m/d", $tomorrow);
+?>
+The output of the code above could be something like this:
+
+Tomorrow is 2009/05/12
+
+Complete PHP Date Reference
+For a complete reference of all date functions, go to our complete PHP Date Reference.
+
+The reference contains a brief description, and examples of use, for each function!

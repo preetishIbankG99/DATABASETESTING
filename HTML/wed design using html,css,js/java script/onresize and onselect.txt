@@ -1,0 +1,11 @@
+onresize Event
+==============
+<body onresize="alert('you have changed the size of the window")">
+</body>
+onselect Event
+==============
+<form>
+Select text:<input type="text"value="Hello world!"
+onselect="alert('you have selected some of the text.')">
+</form>
+

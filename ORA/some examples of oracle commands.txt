@@ -1,0 +1,454 @@
+(1)sql>create table tablename(sno number(__),name char(__),addr varchar2(__),height number(__),djoin date); 
+(2)sql>desc tablename(unitech,naresh1,emp)
+(3)sql>insert into tablename values(1,'pritish','sector-9',5.6,'15-jul-2010');
+like this we have to insert in a table.......................................
+(4)sql>insert into tablename values(&no,'&name','addr',&height,'&djoin');{using & for re executive}
+(5)sql>select*from tablename;(using select command for selcting the table)
+(6)sql>drop table tablename;(for dropping table)
+(7)sql>purge recyclebin;(for comlete removal of data from table) or sql>droptable tablenamepurge;
+(8)sql>flashback table tablename to before drop;
+(9)sql>set linesize(1 to 32767) & sql>set pagesize(1 to 50,000)
+(10)sql>exit (for exit)
+(11)sql>cl scr(for clear screen)
+(12)sql>ed(editor command in note pad for edit the text in buffer file is changed)
+(13)sql>submit(for submit)
+(14)sql>commit(use to make changes permanent onto storage
+(15)sql>rollback(use  to undo the changes made by a transaction before it is commited)
+(16)sql>savepoint(use to define the checkpoint in a transaction sothat a user can roll back upto the desired checkpoint in the transaction)
+(17)sql>alter (to make the necessary changes in the existing structure of a database)
+(18)sql>update(use to edit or change the values of one or more columns in the table)
+(19)sql>delete(used to delete the selective rows from the database table)
+(20)sql>grant(use to give the prevealages of a table to other users)
+(21)sql>revoke(use to take the given prevealages(permission) from a user)
+(22)sql>savedemo_ins(for saving)
+(23)sql>ed demo_ins(for editing)
+(24)sql>@E:\ASR\ins_demo
+(25)sql>ename format A25(alpha)----------making space
+(26)sql>column ename format A15--------decrease space
+(27)sql>column "date of joining"format A15;(we can use complete date of joining in table)
+(28)sql>column empno format A10; which is wrong because it is not applicable on numeric values
+(29)sql>column empno format 9999;(using for numeric values such as (sno,id)
+(30)sql>column sal format 9,99,99,99 or sql>column salary format$999,999,999,999.99(for complete currency format)
+
+(31)sql>ED emp_fmt
+(32)sql>select empno,ename,job,sal,comm,sal+comm,deptno from emp;
+(33)sql>select empno,ename,job,sal,comm,"gross salary" or "total",deptno from emp{we can use "gross salary" or "total" instead of salary+comm}
+(34)sql>select empno,ename,job,sal,sal+1000,deptno from emp;[select statement never be commited only applicable for update,insert,delete]
+(35)sql>select empno,ename,job,sal,sal*0.25,sal=sal*0.25,deptno from emp;(column in not clear means conjucted)
+(36)sql>select empno,ename,job,sal*0.25"25%salary",sal+sal*0.25"proj salary" deptno from emp;
+(37)sql>select empno,ename,job,sal,salx0.25x,salx"projtd salary" from emp;(Alias names cannot be use in expression of a query statment)
+(38)sql>select empno,ename,job,sal,deptno,1000 from emp;(virtual column 1000 column is added and we will see 1000 is repeated)
+(39)sql>select empno,ename,job,sal,deptno,1000+2000 XYZ or "XYZ" from emp;
+(40)sql>select empno,ename,job,sal,deptno,(1000+2000)*2 from emp;(oracle follows BDMAS rule)
+(41)sql>select empno,ename,job,sal,deptno,(1000+2000)*2,3000-2000 from emp;(Any no of expression can be use in a query stmnt)
+(42)sql>select empno,ename,job,sal,deptno,'satya' from emp;(virtual expression satya will be repeated)
+(43)sql>select empno,ename,job,sal,deptno,'satya' Inst from emp;
+(44)sql>column Institute format A12(for complete Institute)
+(45)sql>select empno,ename,job,sal,deptno,'1000'+'3000' from emp;(o/p=4000 two numeric string can be added)
+(46)sql>select ename,'working as',job,'with salary',sal,'for dept',deptno from emp;
+(47)sql>select ename,'working as' " ",job,'with salary' " ",'for dept' " ",deptno from emp;[for ommiting column with salary,dept,working as]
+(48)sql>set heading off;(for no heading)
+(49)sql>set heading on;(for heading)
+************************************************************************************************
+FOR SELECTIVE RECORDS(relational operators ex- <,>,=,<=,=>,!= or <>)
+---------------------------------------------------------------------
+(50)sql>select*from emp where sal=3000;
+(51)sql>select*from emp where sal!=3000;
+(52)sql>select*from from emp where job ='manager';(no rows will be displayed because values are case sensitive if u put it as 'MANAGER' then it will display)
+(53)sql>select*from emp where ename>'JAMES';{ASCII values so after the name of james can we get name)
+(54)sql>select*from emp where ename<='SCOTT';
+(55)sql>select*from empx where 4=(select count(rowid)from empY whereX,rowid)=Y,rowid);(for distinct row values we can have the above cmmnd)
+          
+(56)sql>select*from emp where sal>=1500 AND sal<=3000;
+(57)sql>select*from emp where sal<1500 OR sal>3000;
+(58)sql>select*from emp where sal>=1500 OR sal<=3000;(all 14 records will be displayed)
+(59)sql>select*from emp where sal>=3000 OR sal<=1500;(10 records will be displayed condition disatisfy)
+(60)sql>select*from emp where sal>=3000 AND sal<=3000;(only 2 records will be displayed)
+(61)sql>select*from emp where sal>=3000 OR sal<=3000;(All records will be displayed)
+(62)sql>select*from emp where HIREDATE=17-DEC-81(it will show an error so just write '17-DEC-81')
+(63)sql>select*from emp where HIREDATE>='01-JAN-81' AND HIREDATE<='31-DEC-81'
+(64)sql>select*from emp where HIREDATE>'31-DEC-80' AND HIREDATE<'01-JAN-82'
+(65)sql>select*from emp where ename>='JAMES' AND ename<='SCOTT';
+(66)sql>select*from emp where ename>='J' AND ename<='S';(after 'j' and before 's')
+(67)sql>select*from emp where job='MANAGER' OR job='manager';(for case sensitivity checking)
+(68)sql>select*from emp where NOT sal=3000;
+(69)sql>select*from emp where NOT job='MANAGER'
+(70)sql>select*from emp where NOT(sal>=1500 and sal<=3000);
+(71)sql>select*from emp where NOT(ename>='JAMES' AND ename<='SCOTT);
+(72)sql>select*from emp where sal<1500 OR job='SALESMAN';
+(73)sql>select*from emp where sal>=1000 AND sal<=1500;(5 records)
+(74)sql>select*from emp where sal>=1000 AND sal<=1500 AND job='SALESMAN';
+(75)sql>select*from emp where(sal>=1000 AND sal<=1500) OR job='SALESMAN';
+(76)sql>select*from emp where sal>=1000 AND (sal<=1500 AND job='SALESMAN')
+(77)sql>select*from emp where sal>=1000 OR (sal<=1500 and job='SALESMAN')
+(78)sql>select*from emp where sal>=1500 AND sal<=3000;
+(79)sql>select*from emp where sal between 1500 AND 3000;
+(80)sql>select*from emp where sal between 3000 AND 3000;(2 records only sal=3000 display)
+(81)sql>select*from emp where sal between 3000 AND 1000;(NO records will be displayed because 3000(n1) must be less than equal(<=) to 1000(n2)
+(82)sql>select*from emp where NOT sal between 1500 AND 3000;
+(83)sql>select*from emp where sal NOT between 1500 AND 3000;
+(84)sql>select*from emp where sal NOT between 1500 AND 3000;(negation of negation)
+(85)sql>select*from emp where ename between 'JAMES' AND 'SMITH';
+(86)sql>select*from emp where ename NOT between 'JAMES' AND 'SMITH';
+(87)sql>select*from emp where ename between'J' AND 'S';
+(88)sql>select*from emp where ename NOT between 'J' AND 'S';
+(89)sql>select*from emp where HIREDATE between '01-jan-81' AND '31-dec-81';
+(90)sql>select*from emp where NOT HIREDATE between '01-Jan-81' AND '31-Dec-81';
+(91)sql>select*from emp X where 2=(select count(distinct sal)from empY whereX.sal<=Y.sal);
+(92)sql>select*from emp where deptno=10 OR deptno=30;(11 records)
+ {+FOR MULTIPLE RECORDS+}
+-------------------------------
+IN COMMAND>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+(93)sql>select*from emp where deptno in(10,30,40,60,80)---for multiple OR we use in(list)
+(94)sql>select*from emp where deptno not in(10,30,40,60,80); or where not deptno in(10,30,40,60,80); is same both
+(95)sql>select*from emp where job in('Analyst','President','Manager');
+where job not in('Analyst','President','Manager');
+IS COMMAND<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+(96)sql>select*from emp where job is null;(for null values)
+(97)sql>select*from emp where not job is null;(only "is null" is applicable for null)
+(98)sql>select*from emp where comm is null;
+(99)sql>select*from emp where comm is not null;
+LIKE COMMAND+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+(100)sql>select*from emp where ename like 'JAMES';
+(101)sql>select*from emp where ename like'J%';
+(102)sql>select*from emp where ename notlike'J%';
+(103)sql>select*from emp where ename like '%S';
+(104)sql>select*from emp where ename'S%S';(means those name which were starting and ending both with'S')
+(105)sql>select*from emp where ename'%S%';(Name containg alphabet 'S' ex-SCOTT<JAMES<SMITH all 'S' containing characters)
+(106)sql>select*from emp where ename like 'SRI';(ex-SRINIVA,SRIPAT,SRILAXMI)
+(107)sql>select*from emp where ename like 'AL%';(upto 2nd character ex-ALLEN,ALLAN,ALLYN,ALLEYNE,ALFONSA)
+(108)sql>select*from emp where ename like 'ALL_N'; or where ename like'ALL%N'; both are same both will give 4 record(FIRST CHARACTER "ALL" & "LAST" N EX-ALLEN,ALLAN,ALLYN,ALLYSON)
+(109)sql>select*from emp where ename like 'ALL_N';(o/p-ALLEN,ALLAN,ALLYN)
+(110)sql>select*from emp where ename like'_LA%';(o/p-BLAKE,CLARKE,CLARANCE,FLAKE)
+(111)sql>select*from emp where ename like'A____';(o/p-name with 4 characters ALLAN,ALLEN,ADAMS,ALLYN)
+(112)sql>select*from emp where ename like'-----';
+(113)sql>select*from emp where ename like'%';(All the records)
+(114)sql>select*from emp where NOT ename like'%';(no rows)
+(115)sql>select*from emp sal like 3000;
+(116)sql>select*from emp like'1%';(All the records which starts with 1---)
+(117)sql>select*from emp where sal like '_2%';(ex-12345,2222)
+(118)sql>select*from emp where Hiredate like'%81';
+(119)sql>select*from emp where Hiredate NOT like'%81';
+(120)sql>select*from emp where Hiredate like'%sept';(all the records which joindate is sept)
+(121)sql>select*from emp where Hiredate'%11' OR Hiredate like'%12';
+DISTICNCT COMMAND#######################################################################
+(122)select distinct job from emp;(no repeatation means eliminates duplicate values)
+(123)sql>select empno,distinctjob from emp(empno column should not be added before the distinct no column)
+(124)sql>select distinct deptno from emp;
+(125)sql>select distinct deptno,distinct job from emp;(it will give no o/p because oracle gives equal no of rows & columns)
+(126)sql>select distinct deptno,job from emp;(it will work both for deptno & job ;first it will filter dept wise & after dept wise it will filter job wise)
+(127)sql>select*from emp order by empno;(Ascending order means lowest to highest priority)
+(128)sql>select*from emp order by empno desc;(descending order means higest to lowest) like that order by job,order by sal,order by sal desc;etc
+(129)sql>select*from emp order by comm;(o/p will be comm-0,300,500,600....1400,null values)
+(130)sql>select*from emp order by comm desc;
+(131)sql>select deptno,empno,ename,job,sal from emp order by deptno,empno;(multiple sorting upto 32 column in oracle 11g for sorting)
+(132)sql>select deptno,empno,ename,job,sal from emp order by deptno,empno desc;
+(133)sql>select by deptno desc,empno desc;(for both deptno & empno descending)
+(134)sql>select*from emp order by hiredate;
+(135)sql>select*from emp order by job,ename;
+FOR SELECTIVE RECORDS$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+(136)sql>select*from emp where deptno=30 order by ename;
+(137)sql>select*from emp where deptno order by sal;
+(138)sql>select empno,ename,job from emp order by sal;
+(139)sql>select empno,ename,job,sal,sal+comm from emp order by sal+comm;(expression can be very much use in order by clause)
+(140)sql>select empno,ename,job,sal,comm,sal+comm Total from emp order by Total;(alias cannot be use in expression but allias can be use in "Order by" clause)
+(141)sql>select empno,ename,job,sal,comm,sal+comm,Total from emp where Total=3500(it will give error because  alias can't be use in where condition)
+(142)sql>select empno,ename,job,sal,comm,sal+comm from emp where sal+comm=3500;(here alias can be use in expression)
+UPDATE COMMAND@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+(143)sql>update emp set ename='STEEVE',hiredate='01-oct-12' where ename='STEEPE' where empno=7935;
+(144)sql>insert into emp values(7935,'STEEPE','MANAGER',7893,'01-sept-12',2000,NULL,20);(1 row will be created but in name it is mistake it is not 'STEEP' it is 'STEEVE')
+(145)sql>update emp set sal=sal+1000;(using of expression)
+(146)sql>update emp set sal=sal+sal*0.25,job='SR CLERK' where job='CLERK' and deptno=20;
+(147)sql>select*from emp order by deptno,job;
+(148)sql>update emp set sal=sal+sal*0.15,comm=comm+200 where job='SALESMAN';
+(149)sql>update emp set sal=sal-500 where sal between 2000 AND 4000;(sql>rollback)
+(150)sql>update emp set comm=comm+500 where comm is null;(o/p -null+something=null)
+(151)sql>update emp set comm=500 where comm is null;(expression can use but null will remain null only)
+(152)sql>update emp set job=null;(sql>select*from emp;)
+(153)sql>update emp set Hiredate=null,sal=null;(rows updated)
+(154)sql>@demobld(for demonstration tables ex-emp,dept,salgrade,bonus){but if it unable to find then go to windows search and just search "demobld" now if u found just copy it and paste it in oracle->product->10.2.0->db_1->bin->rclk paste)
+(155)sql>@DEMOBLD(building demonstartion table please wait.......complete)
+DELETE COMMAND!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+(156)sql>Delete from tablename[where condition(s)];
+(157)sql>Delete from emp;(all rows deleted)
+FOR DELETING SELECTIVE RECORDS............................................................
+(158)sql>Delete from emp where empno=7788;(1 record deleted)
+(159)sql>Delete from emp where deptno=10;(2 records deleted----condition are same for update,select,delete)
+(160)sql>Delete from emp where ename like'J%';
+(161)sql>Delete job,Hiredate from emp;(partial record can't be delete all records can be deleted in oracle)
+(162)sql>update emp set=null,Hiredate=null,sal=null;(replacing values with null.......this is possible to make column empty)
+TRUNCATE TABLE TABLENAME(delete only records not the structure permanently not applicable for selective records)
+(163)sql>Truncate table emp;(table truncated)
+(164)sql>Delete from emp where deptno=30;
+(165)sql>Delete from emp where deptno=10;(not applicable for selective records)
+CREATE TABLE NEWTABLE NAME AS<SELECT AN OLD(EXISTING) TABLE NAME>&&&&&&&&&&&&&&&&&&&&&&&&
+(166)sql>create table emp1 as select*from emp;(table created......sql>select*from tab;.....u can see new table emp1 is created with same structure as emp ;we can define atable from the defining table as per as your choice)
+(167)sql>create table emp2 as select empno,ename,job,sal,deptno from emp where deptno=10;(3 records with deptno=10) sql>desc emp2;
+(168)sql>create table emp3 as selct empno,ename,job,sal,comm,sal+comm,deptno from emp where deptno=30;{it will generate an error messaage "must name this expression with a column alias" means  we have to produce an alias name "total" instead of sal+comm}
+(169)sql>create table emp4(eno,name,post,salary,deptno) as select empno,ename,job,sal,deptno from emp where deptno=20;(data types we can change the column names)
+(170)sql>create table emp5(eno,name,post,hdate,sal,deptno) as select empno,ename,job,hiredate,sal,deptno from emp where sal between 1500 AND 3000;
+(171)sql>create table emp5 as select empno eno,ename name,job post,hiredate hdate,sal,deptno from emp where sal between 1500 AND 3000;(select*from emp5)
+(172)sql>create table emp6 as select*from emp where comm=null;(for no rows or null values)
+select*from emp where sal between 3000 AND 1500;
+select*from emp where sal>3000 AND sal<3000;
+select*from emp where empno!=empno;
+select*from emp where empno=empno+1;
+select*from emp where sal=sal+null;
+select*from emp where sal>sal+comm;
+select*from emp where sal+null=500;
+(173)sql>select *from emp where ename not like'%';/ or where 1=2;/(condition is true it will show no records)
+
+SQL>insert into target tablename<Query statement on source tablename>
+======================================================================
+(174)sql>insert into emp6 select*from emp where deptno=10;
+(175)sql>insert into emp2 select*from emp where deptno=20;{it will generate an error and give too many values}
+(176)sql>insert into emp2 select empno,ename,job,sal,deptno from emp where deptno=20;(now if we can insert values 5 rows created now sql>select*from emp2;)
+(177)sql>select*from emp6;(3 records with deptno=10)
+sql>insert into emp6 select*from emp2 where deptno=20;(error not enough values)
+sql>insert into emp6(empno,ename,job,sal,deptno)select*from emp2 where deptno=20;(5 rows created)
+select*from emp6;(8 rows){mgr(not available),hiredate(not available),comm(not available)}
+(178)insert into emp6 select*from emp3;{in emp3(total) is not available and in emp6(mgr,hiredate) is not available}
+(179)insert into emp6(empno,ename,job,sal,comm,deptno)select*from emp3;(no rows created)
+(180)insert into emp6(empno,ename,job,sal,comm,deptno)select empno,ename,job,sal,comm,deptno from emp3;(6 rows created)---select*from emp6{where source & target have different columns then we have to match for corresponding column which are available in both the table}
+(181)insert into emp6 select empno,ename,job,9999,'04-oct-12',sal,comm,deptno from emp3;(6 rows){mgr is null so to avoid null values we use 9999}
+select*from emp6;(for null values we can see 9999)
+(182)sql>update emp6 set hiredate='&hdate' where empno=&empno;(value updated)
+(183)sql>insert into emp4 select*from emp2 where deptno=10;(3 rows)
+select*from emp4
+select*from emp3;(9 rows)
+(184)insert into emp4 select empno,job,ename,sal,deptno from emp3 where deptno=30;(6 rows create)
+select*from emp4; [in name we get post values and in post we get name which is string value fault by user]
+TO MODIFY ONE COLUMN DATA TYPE SIZE
+====================================
+(185)sql>create table demo1 as select*from demo;
+(186)sql>delete from demo;
+(187)sql>alter table demo modify empno varchar2(6);
+(188)sql>select*from demo;(noo rows select)
+(189)sql>insert into demo select*from demo1;
+(190)sql>select*from demo;
+TO ADD A COLUMN IN A TABLE
+__________________________
+(191)sql>alter table demo add (hiredate,comm number(6,2));
+(192)sql>insert into demo values('ST8003','Leon','manager',400,20,'01-Jan-12',100);
+(193)sql>update demo set hiredate='&hdate',comm=&comm where empno='&eno';
+DUAL
+######################################
+======================================
+(195)select 100 from Dual;100/100
+(196)select -100 from Dual;-100/100
+(197)select abs9-100) from Dual;abs(-100)/100
+(198)select sqrt (100)from Dual;
+(199)select sqrt(100.625) from Dual;
+(200)select power(5,3) from Dual;power(5,3)/125
+(201)round(12345.123456789);op:12345
+(202)round(12345.987654321);o/p=123456
+(203)round(12345.123456789,3);o/p=12345.123
+(204)round(12345.987654321,3):this(7) is near to 8 :o/p:12345.988
+(205)trunc(12345.123456789);:o/p:12345
+(206)floor(12345.99999);o/p:12345
+(207)ceil(12345.123456789);o/p:12346
+(208)log(100,2);o/p:150514998
+STRING FUNCTION
+======================================
+select upper('scott')from dual;
+initcap('scott')o/p:Scott
+initcap(bruce scott');o/p-Bruce Scott{where initial letter of the the name is in upper case and next all are in lower case}
++select empno,ename,job,initcap(ename),lower(job)from emp;
++select empno,initcap(ename),lower(job)from emp;
+update emp set ename=initcap(ename);
+instr++++++++++++++++++++++++++++++++++
+=======================================
+(209)select instr('JONES','N') from dual;o/p:3
+(210)instr('JONES',E);o/p:4
+(211)instr(JONES','K');o/p:0
+(212)instr('MISSISSIPPI,'S');o/p:3
+(213)instr('MISSISSIPPI,'SSI');o/p:3
+(214)instr('MISSISSIPPI,'SIS');o/p:4
+(215)instr('MISSISSIPPI,'S',1,3);o/p:6
+(216)instr('MISSISSIPPI,'IJK');o/p:0
+Lpad%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+=======================================
+select lpad('SCOTT',10,'*')from dual;o/p*****SCOTT
+Rpad^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+========================================
+select rpad('SCOTT',10,'*')from dual;o/p:SCOTT*****
+(217)sql>select rpad(lpad('scott',10,'*'),15,'@')from dual;o/p:*****SCOTT@@@@@{in place of * u can put any thing}
+(218)sql>select empno,rpad(ename,15,'.'),job,sal,deptno from emp;
+(219)select empno,rpad(ename,20),job,sal,deptno from emp;
+(220)select rpad(empno,10)from emp;
+(221)select rpad(ename,15,'satya')from emp;
+(222)select empno,rpad(empno,10),ename,lpad(ename,15),job,sal,deptno from emp;
+(223)select ename,rpad(ename,3,'satya')from emp;o/p:first three letter
+ltrim!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+========================================
+(224)select ltrim('SCOTT')from dual;{left trim remove spaces from left side and right trim  remove spaces to right side}
+(225)select rtrim('SCOTT'from dual
+(226)select trim('SCOTT')from dual;{it removes spaces between two sides}
+(227)select empno,trim(ename),job,sal from emp;{remove spaces of ename}
+(228)sql>update emp set ename=trim(ename);
+(229)sql>select length('SCOTT')from dual;(5)
+(230)select empno,ename,length(ename)from emp;
+(231)alter table emp modify ename char(15);
+(232)select ename,length(ename)from emp;
+(233)sql>select ename,length(trim(ename))from emp;{non size vary:::::varchar to char no problem}
+(234)sql>alter table emp modify ename varchar2(15);
+(235)sql>select empno,ename,length(ename)fromemp;(always 15)
+(236)update emp set ename=trim(ename);
+(237)select*from emp where length(ename)=6;
+(238)select reverse('JONES')from dual;o/p:SENOJ
+(239)select empno,ename,reverse(ename)from emp;
+(240)select substr('computer',4)from dual;o/p:puter
+(241)select substr('computer',4,3)from dual;o/p:put
+(242)select substr('computer',1,4)from dual;o/p:comp
+(243)select substr('computer',4,0)from dual;o/p:no output
+(244)select substr('computer',0,4)from dual;o/p:comp
+(245)select empno,ename,rpad(substr(ename,1,3),10),substr(ename,4)from emp;
+(246)select job,sal from emp where substr(ename,2,2)
+(247)select ascii('A')from dual;o/p:65
+(248)select chr(65)from dual;o/p:A
+(249)select chr(97)from dual;o/p:(a)
+(250)select chr(49) from dual;o/p:1
+(251)select concat('BRUCE','SCOTT')from dual;o/p:BRUCESCOTT{concat can be denoted as ||)
+(252)select'BRUCE'||'SCOTT' from dual;or select'BRUCE','SCOTT','BRUCE'||'SCOTT' from dual;
+(253)select empno,Fname||Lname from demo;
+(254)select replace('Jack and Jue','J','BL')from dual;o/p:BLACK AND BLUE
+(255)select translate('Jack and Jue','J','BL')from dual;o/p:BLACK & BLUE
+(256)sql>replace('Jnack and Jnue','Jn','Bl');o/p:Black and Blue
+(257)sql>translate('Jnack and Jnue','Jn','Bl');o/p:Black ALD Blue{character by character translation so and become ALD}
+(258)sql>update demo set ename='Sreenivas where ename='Srinivas';{name changed to srinivas to sreenivas}
+(259)select*from demo where soundex(ename)=soundex('SUBHASH');
+(260)select*from demo where soundex(ename)=soundex('&ename');o/p:Bhasker,Bhaskar,BASKHAR
+END OF STRING FUNCTION|||||||||||||||||||||||||
+SYSDATE FUNCTIONS IN ORACLE********************
+===============================================
+(261)select sysdate from dual;[sysdate is apseudo column in oracle that returns the current date of system]
+(262)select systimestamp from dual;
+(263)select sysdate,sysdate+10 from dual;
+(264)select sysdate,sysdate-10 from dual;
+(265)select sysdate,sysdate+180 from dual;
+(266)select sysdate add_months(sysdate,6)from dual;(wrong format)
+(267)select sysdate ,Add_months(sysdate,6)from dual;
+(268)select sysdate ,Add_months(sysdate,4*12)from dual;
+(269)select sysdate ,Add_months(sysdate,4*12+6)from dual;
+(270)select sysdate ,Add_months(sysdate,4*12+6)+15(o/p:26-APR-17)
+(271)select sysdate ,Add_months(sysdate,-4*12+6)from dual;
+(272)select empno,ename,hiredate,Add_months(hiredate,6) from emp;[hiredate is added for next six months]
+(273)select empno,ename,hiredate,Add_months(hiredate,30*12)Retirement from emp;
+(274)select empno,ename,sysdate,hiredate,sysdate-hiredate from emp;
+(275)select empno,ename,sysdate,hiredate,trunc(sysdate-hiredate)expr from emp;{for experience}
+(276)select sysdate-'01-Jan-12'from dual;{error as system cannot understand the string alpha numeric values so we cant substract astring from a date}
+(277)select sysdate-to_date('01-Jan-12')from dual;[it is a conversion function that converts a given string into date data type provided that the string is in date format]
+month_between++++++++++++++++++++++++++++++++++++
+=================================================
+(278)select empno,ename,hiredate,months_between(sysdate,hiredate)expr from emp;[here we r getting decimal value ]
+(279)select empno,ename,hiredate,trunc(months_between(sysdate,hiredate))expr from emp;{with out decimal values}
+(280)select empno,ename,hiredate,trunc(months_between(sysdate,hiredate)/12) from emp;[FOR YEAR VALUES]
+(281)select empno,ename,hiredate,trunc(months_between(sysdate,hiredate)%12) from emp;{error % will not work in oracle}
+(282)select empno,ename,hiredate,mod(months_between(sysdate,hiredate),12)expr_mths from emp;
+(283)select empno,ename,hiredate,trunc(Mod(months_between(sysdate,hiredate),12))from emp;
+Last_day+-@@@@@#######$$$$$%%%%%%^^^^^^^&&&&&&&&&&
+==================================================
+(284)select sysdate,last_day(sysdate)from dual;{for the last day of calendar number}
+(285)select last_day(sysdate)-sysdate from dual;
+(286)select last_day(sysdate)-To_date('21-Apr-13') from dual;
+(287)select ceil(last_Day(sysdate-To_date('11-sep-12')))from dual;(error i have to solve it)
+Next_day++++++++++++++$$$$$$$####^^^^^^^&&&&&&&&&&
+==================================================
+(288)select sysdate,next_day(sysdate,'sunday')from dual;
+(289)select sysdate,next_day(sysdate,'&Day')from dual;
+round(dt,'year'/'month'/'day')+++++++++++++++++++++
+===================================================
+(290)select sysdate,round(sysdate,'year')from dual;{round(35/8)=36static value and round(35/3)static value}
+(291)select round('15-jun-12','year')from dual;(error string)
+(292)select round(to_date('15-jun-12'),'year')from dual;
+(293)select sysdate,round(sysdate,'month')from dual;
+(294)select round(to_date('16-oct-12'),'month')from dual;
+(295)select sysdate,round(sysdate,'day')from dual;
+(296)select round(to_date('10-oct-12'),'day')from dual;
+trunc(dt,'year'/'month'/'day')
+(297)select sysdate,trunc(sysdate,'year')from dual;
+(298)select sysdate,trunc(sysdate,'month')from dual;
+(299)select sysdate,trunc(sysdate,'day')from dual;
+(300)select to_char(sysdate)+10 from dual;(error cant convert a date to string)
+(301)select to_char(sysdate,'dd')from dual;(day of month)
+(302)select to_char(sysdate,'d')from dual;(day of week)
+(303)select sysdate,to_char(sysdate,'ddd')from dual;(day of year)
+(304)select empno,ename,hiredate,to_char(hiredate,'d'),to_char(hiredate,'dd'),to_char(hiredate,'ddd')from emp;
+(305)select sysdate,to_char(sysdate,'mm')from dual;{10}
+(306)select sysdate,to_char(sysdate,'yy')from dual;{12}
+(307)select sysdate,to_char(sysdate,'yyyy')from dual;{2012}
+(308)select sysdate,to_char(sysdate,'DD/MM/YYYY')from dual;
+(309)select empno,ename,hiredate,to_char(hiredate,'DD/MM/YYYY')from emp;
+(310)select sysdate,to_char(sysdate,'w')from dual;{which week}
+(311)select sysdate,to_char('29-oct-12'),'w'from dual;
+(312)select sysdate,to_char(sysdate,'ww')from dual;
+(313)select sysdate,to_char(to_date('31-dec-12'),'ww')from dual;
+to_char(sysdate,'mon')->oct
+to_char(sysdate,'month')->october
+to_char(sysdate,'day')->friday
+to_char(sysdate,'dy')->fri
+(314)select empno,ename,hiredate,to_char(hiredate,'day.ddth month yyyy')from emp;{o/p:complete calender format}
+FOR CLOCK FUNCTION IN hh:mi:ss++++++++++++++++
+===============================================
+(315)select sysdate,to_char(sysdate,'HH')from dual;(hours)
+(316)select sysdate,to_char(sysdate,'HH24')from dual;(for hrs in 24 format)
+(317)select sysdate,to_char(sysdate,'mi')from dual;(for minutes)
+(318)select sysdate,to_char(sysdate,'ss')from dual;(for seconds)
+(319)select sysdate,to_char(sysdate,'HH24:mi:ss')from dual;
+(320)select sysdate,to_char(sysdate,'ddsp/mmsp/yyyysp')from dual;{spell out the complete system date}
+(321)select sysdate,to_char(sysdate,'HH:mi:ss pm')from dual;(Am/Pm mode in  system clock time)
+(322)select sysdate,to_char(sysdate,'Q')from dual;(APR-2nd quarter)
+(323)select empno,ename,hiredate,to_char(hiredate,'Q')from emp;
+(324) select sysdate,to_char(sysdate,'HH24sp:MISP:SSSP')from dual;
+(325)select sysdate,to_char(sysdate,'J')from dual;{J->"julian calender"}
+(326)select sysdate,to_char(to_date('12-oct-12'),'J')from dual;
+(327)select 2013*365 from dual;
+(328)select empno,ename,hiredate,to_char(hiredate,'DD/MM/YYYY')from demo;{complete century format}
+(329)select empno,ename,hiredate,to_char(hiredate,'DD/MM/YYYY') from demo;{for retrieve of date}
+(330)insert into demo(7499,'Alex',to_date('sunday 14th october 2012','day ddth month yyyy'));
+TO INSERT DATE AND TIME+++++++++++++++++++
+==========================================
+(331)sql>insert into demo values(7755,'GRACE',to_date('05|10|2012 15:30:45);
+(332)select empno,ename,hiredate,to_char(hiredate,'mm/dd/yyyy..HH24:MI:SS')from demo;
+(333)insert into demo values(7766,'GOOD',to_date('15:30:45','HH24:MI:SS));
+(334)insert into demo values(&empno,'&ename',sysdate);
+MISCELLANEOUS FUNCTIONS###################
+===========================================
+(335)update emp set job=null where job='clerk';
+(336)select empno,ename,job,null
+(job,'*****'),sal,deptno from emp;
+(337)select empno,ename,job,null(job,'contract')from emp;
+(338)select empno,ename,job,sal,comm,null(comm,o)from emp;
+select empno,ename,job,sal,comm,null(comm,'***')from emp;[both are wrong formats]
+(339)select empno,ename,comm,null(to_char(comm),'***')from emp;(it is correct format)
+(340)select empno,ename,job,sal,comm,rpad(null(to_char(comm),'----'),10)comm from emp;(//incorrect::parenthesis missing)
+(341)select empno,ename,job,sal,comm,lpad(null(to_char(comm),'----'),10)comm,deptno from emp;{//incorrect::parenthesis missing}
+(342)select stno,sname,lpad(null(to_char(mks),'AB'),10)oracle from stud;{place AB without any space}
+(343)select stno,sname,null2(mks,'Present','Absent')Attendance from stud;[only in null to_char() necessary but in null2 no conversion required]
+(344)select empno,ename,job,sal,comm,null(sal,0)+null(comm,0)total from emp;{1st convert comm & sal to 0& then add}
+(345)select stno,sname,mks,null(sub1,0)+null(sub2,0)+null(sub3,0)total from stud;
+(346)create table demo(empno number(4),ename varchar2(10),gender char,m status char);
+decode(column,value1,decode value1,value2,decode value2---)
+(347)select empno,ename,decode(gender,('M','Male','F','Female')sex,decode(m status,'S','Single','M','Married','0','Others')m status from demo;
+VIRTUAL DISPLAY
+===========================================
+(348)select deptno,decode(deptno,10,'TEN',20,'TWENTY'),dname,loc from dept;
+(349)select deptno,decode(deptno,10,'TEN',20,'TWENTY','*****')from dept;[except depno 10 & deptno 20  all values will be*****]
+(350)select sum(sal)from emp;o/p=29025
+(361)select empno,sum(sal)from emp;(error not a single group function,whe we use grp functn,other column value cannt be displayed)
+(362)select sum(sal),avg(sal),count(sal),min(sal),max(sal) from emp;
+(363)select max(ename) from emp;{{o/p::WARD based on ASCII VALUE}}
+(364)select min(ename) from emp;{{o/p::ADAMS}}
+(365)select count(ename)from emp;o/p::14 rows
+(366)select count(sal)from emp;14
+(367)select count (empno)from emp;14
+(368)select count(comm)from emp;
+(369)select  sum(comm)from emp;(o/p::2200::null values not considered in group function)
+IRRESPECTIVE OF NULL VALUES TOTAL NUMBER OF RECORDS IN A TABLE{3 WAYS TO KNOW}
+===============================================================
+(370)select count(nvl(empno,0))from emp;(nvl->null value)o::p::14
+(371)select count(nvl(ename,'*'))from emp;
+JOINS IN ORACLE
+===============================================================
+
+

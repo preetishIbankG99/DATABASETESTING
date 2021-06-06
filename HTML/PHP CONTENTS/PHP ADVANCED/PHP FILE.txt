@@ -1,0 +1,100 @@
+PHP File Handling
+=================
+Opening a File
+The fopen() function is used to open files in PHP.
+
+The first parameter of this function contains the name of the file to be opened and the second parameter specifies in which mode the file should be opened:
+
+<html>
+<body>
+
+<?php
+$file=fopen("welcome.txt","r");
+?>
+
+</body>
+</html>
+The file may be opened in one of the following modes:
+
+Modes	Description
+r	Read only. Starts at the beginning of the file
+r+	Read/Write. Starts at the beginning of the file
+w	Write only. Opens and clears the contents of file; or creates a new file if it doesn't exist
+w+	Read/Write. Opens and clears the contents of file; or creates a new file if it doesn't exist
+a	Append. Opens and writes to the end of the file or creates a new file if it doesn't exist
+a+	Read/Append. Preserves file content by writing to the end of the file
+x	Write only. Creates a new file. Returns FALSE and an error if file already exists
+x+	Read/Write. Creates a new file. Returns FALSE and an error if file already exists
+Note: If the fopen() function is unable to open the specified file, it returns 0 (false).
+
+Example
+
+The following example generates a message if the fopen() function is unable to open the specified file:
+
+<html>
+<body>
+
+<?php
+$file=fopen("welcome.txt","r") or exit("Unable to open file!");
+?>
+
+</body>
+</html>
+
+Closing a File
+The fclose() function is used to close an open file:
+
+<?php
+$file = fopen("test.txt","r");
+
+//some code to be executed
+
+fclose($file);
+?>
+
+Check End-of-file
+The feof() function checks if the "end-of-file" (EOF) has been reached.
+
+The feof() function is useful for looping through data of unknown length.
+
+Note: You cannot read from files opened in w, a, and x mode!
+
+if (feof($file)) echo "End of file";
+
+Reading a File Line by Line
+The fgets() function is used to read a single line from a file.
+
+Note: After a call to this function the file pointer has moved to the next line.
+
+Example
+
+The example below reads a file line by line, until the end of file is reached:
+
+<?php
+$file = fopen("welcome.txt", "r") or exit("Unable to open file!");
+//Output a line of the file until the end is reached
+while(!feof($file))
+  {
+  echo fgets($file). "<br>";
+  }
+fclose($file);
+?>
+
+Reading a File Character by Character
+The fgetc() function is used to read a single character from a file.
+
+Note: After a call to this function the file pointer moves to the next character.
+
+Example
+
+The example below reads a file character by character, until the end of file is reached:
+
+<?php
+$file=fopen("welcome.txt","r") or exit("Unable to open file!");
+while (!feof($file))
+  {
+  echo fgetc($file);
+  }
+fclose($file);
+?>
+

@@ -1,0 +1,46 @@
+PHP MySQL Update
+
+================
+The UPDATE statement is used to modify data in a table.
+
+Update Data In a Database
+The UPDATE statement is used to update existing records in a table.
+
+Syntax
+
+UPDATE table_name
+SET column1=value, column2=value2,...
+WHERE some_column=some_value
+
+Note: Notice the WHERE clause in the UPDATE syntax. The WHERE clause specifies which record or records that should be updated. If you omit the WHERE clause, all records will be updated!
+To learn more about SQL, please visit our SQL tutorial.
+
+To get PHP to execute the statement above we must use the mysqli_query() function. This function is used to send a query or command to a MySQL connection.
+
+Example
+
+Earlier in the tutorial we created a table named "Persons". Here is how it looks:
+
+FirstName	LastName	Age
+Peter	Griffin	35
+Glenn	Quagmire	33
+The following example updates some data in the "Persons" table:
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+mysqli_query($con,"UPDATE Persons SET Age=36
+WHERE FirstName='Peter' AND LastName='Griffin'");
+
+mysqli_close($con);
+?>
+After the update, the "Persons" table will look like this:
+
+FirstName	LastName	Age
+Peter	        Griffin	        36
+Glenn	      Quagmire	        33 

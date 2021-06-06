@@ -1,0 +1,19 @@
+DATA CONTROL LANGUAGE
+=====================
+GRANT::gives user rights and privileges on database objects or schema
+=====================================================================
+SYNTAX:::GRANT[privilege|privilege list|ALL|EXECUTE]ON [object]TO[schema];
+GRANT INSERT,UPDATE ON Empl TO HR_Clerk;
+GRANT ALL ON Payroll TO HR_Manager;
+SYNTAX::GRANT[privilege]([column])ON [table]TO [schema]{for grant column privileges}
+ex::GRANT UPDATE(salary,taxes)ON payroll TO HR_Assc;
+REVOKE::REMOVES OR RESTRICTS user  rights or privileges on datbase objects
+==========================================================================
+SYNTAX::REVOKE[privilege|privilege list|ALL|EXECUTE]ON[object]FROM[schema];
+ex::REVOKE INSERT,UPDATE ON Empl FROM HR_Clerk;
+REVOKE ALL ON Payroll FROM HR_Manager;
+REVOKE EXECUTE ON fCalculate Taxes FROM HR_Assc;
+Revoke column privileges::
+==========================
+REVOKE UPDATE(salary,Taxes)ON payroll FROM HR_Assc;
+

@@ -1,0 +1,102 @@
+PHP MySQL Introduction
+=======================
+With PHP, you can connect to and manipulate databases.
+
+MySQL is the most popular database system used with PHP.
+
+What is MySQL?
+MySQL is a database system used on the web
+MySQL is a database system that runs on a server
+MySQL is ideal for both small and large applications
+MySQL is very fast, reliable, and easy to use
+MySQL supports standard SQL
+MySQL compiles on a number of platforms
+MySQL is free to download and use
+MySQL is developed, distributed, and supported by Oracle Corporation
+MySQL is named after co-founder Monty Widenius's daughter: My
+The data in MySQL is stored in tables. A table is a collection of related data, and it consists of columns and rows.
+
+Databases are useful when storing information categorically. A company may have a database with the following tables:
+
+Employees
+Products
+Customers
+Orders
+PHP + MySQL
+PHP combined with MySQL are cross-platform (you can develop in Windows and serve on a Unix platform)
+Queries
+A query is a question or a request.
+
+We can query a database for specific information and have a recordset returned.
+
+Look at the following query (using standard SQL):
+
+SELECT LastName FROM Employees
+The query above selects all the data in the "LastName" column from the "Employees" table.
+
+To learn more about SQL, please visit our SQL tutorial.
+
+Download MySQL Database
+If you don't have a PHP server with a MySQL Database, you can download MySQL for free here: http://www.mysql.com
+Facts About MySQL Database
+One great thing about MySQL is that it can be scaled down to support embedded database applications. Maybe it is because of this many people think that MySQL can only handle small and medium-sized systems.
+
+The truth is that MySQL is the de-facto standard database system for web sites with HUGE volumes of both data and end users (like Friendster, Yahoo, and Google).
+
+Look at http://www.mysql.com/customers/ for an overview of companies using MySQL.
+
+
+PHP Connect to the MySQL Server
+================================
+Use the PHP mysqli_connect() function to open a new connection to the MySQL server.
+
+Open a Connection to the MySQL Server
+Before we can access data in a database, we must open a connection to the MySQL server.
+
+In PHP, this is done with the mysqli_connect() function.
+
+Syntax
+
+mysqli_connect(host,username,password,dbname);
+
+Parameter	Description
+host	Optional. Either a host name or an IP address
+username	Optional. The MySQL user name
+password	Optional. The password to log in with
+dbname	Optional. The default database to be used when performing queries
+Note: There are more available parameters, but the ones listed above are the most important.
+
+In the following example we store the connection in a variable ($con) for later use in the script:
+
+<?php
+// Create connection
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+
+// Check connection
+if (mysqli_connect_errno($con))
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+?>
+
+Close a Connection
+The connection will be closed automatically when the script ends. To close the connection before, use the mysqli_close() function:
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+
+// Check connection
+if (mysqli_connect_errno($con))
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+mysqli_close($con);
+?>
+
+
+
+
+ 
+
+

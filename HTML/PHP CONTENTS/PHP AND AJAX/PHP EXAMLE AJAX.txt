@@ -1,0 +1,127 @@
+PHP - AJAX and MySQL
+
+« PreviousNext Chapter »
+AJAX can be used for interactive communication with a database.
+
+AJAX Database Example
+The following example will demonstrate how a web page can fetch information from a database with AJAX:
+
+Example
+
+
+
+Person info will be listed here...
+
+
+Example Explained - The MySQL Database
+The database table we use in the example above looks like this:
+
+id	FirstName	LastName	Age	Hometown	Job
+1	Peter	Griffin	41	Quahog	Brewery
+2	Lois	Griffin	40	Newport	Piano Teacher
+3	Joseph	Swanson	39	Quahog	Police Officer
+4	Glenn	Quagmire	41	Quahog	Pilot
+Example Explained - The HTML Page
+When a user selects a user in the dropdown list above, a function called "showUser()" is executed. The function is triggered by the "onchange" event:
+
+<html>
+<head>
+<script>
+function showUser(str)
+{
+if (str=="")
+  {
+  document.getElementById("txtHint").innerHTML="";
+  return;
+  } 
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","getuser.php?q="+str,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<form>
+<select name="users" onchange="showUser(this.value)">
+<option value="">Select a person:</option>
+<option value="1">Peter Griffin</option>
+<option value="2">Lois Griffin</option>
+<option value="3">Glenn Quagmire</option>
+<option value="4">Joseph Swanson</option>
+</select>
+</form>
+<br>
+<div id="txtHint"><b>Person info will be listed here.</b></div>
+
+</body>
+</html>
+The showUser() function does the following:
+
+Check if a person is selected
+Create an XMLHttpRequest object
+Create the function to be executed when the server response is ready
+Send the request off to a file on the server
+Notice that a parameter (q) is added to the URL (with the content of the dropdown list)
+The PHP File
+The page on the server called by the JavaScript above is a PHP file called "getuser.php".
+
+The source code in "getuser.php" runs a query against a MySQL database, and returns the result in an HTML table:
+
+<?php
+$q=$_GET["q"];
+
+$con = mysql_connect('localhost', 'peter', 'abc123');
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
+mysql_select_db("ajax_demo", $con);
+
+$sql="SELECT * FROM user WHERE id = '".$q."'";
+
+$result = mysql_query($sql);
+
+echo "<table border='1'>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+<th>Age</th>
+<th>Hometown</th>
+<th>Job</th>
+</tr>";
+
+while($row = mysql_fetch_array($result))
+  {
+  echo "<tr>";
+  echo "<td>" . $row['FirstName'] . "</td>";
+  echo "<td>" . $row['LastName'] . "</td>";
+  echo "<td>" . $row['Age'] . "</td>";
+  echo "<td>" . $row['Hometown'] . "</td>";
+  echo "<td>" . $row['Job'] . "</td>";
+  echo "</tr>";
+  }
+echo "</table>";
+
+mysql_close($con);
+?>
+Explanation: When the query is sent from the JavaScript to the PHP file, the following happens:
+
+PHP opens a connection to a MySQL server
+The correct person is found
+An HTML table is created, filled with data, and sent back to the "txtHint" placeholder

@@ -1,0 +1,12 @@
+1)TO MODIFY CONSTRAINT
+======================
+Alter table<table Name>
+MODIFY<col Name>CONSTRAINT<constraint name>NULL/NOT NULL;
+2)TO ADD/DROP CONSTRAINT
+========================
+Alter table<table Name>
+ADD/DROP CONSTRAINT<constraint name>NULL/NOT NULL;
+3)TO ENABLE/DISABLE CONSTRAINT
+==============================
+Alter table<table Name>
+ENABLE/DISABLE CONSTRAINT<constraint Name>;

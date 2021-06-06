@@ -1,0 +1,1 @@
+select ename,dept.deptno,dname,loc from emp cross join dept where emp.deptno=dept.deptno;
